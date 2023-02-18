@@ -48,10 +48,10 @@ namespace Yokogawa.LMS.Business.WebAPI
 
             services.RegisterServices();
 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API Demo", Version = "v1" });
-            });
+            //services.AddSwaggerGen(c =>
+            //{
+            //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "API Demo", Version = "v1" });
+            //});
 
             services.AddControllers().AddNewtonsoftJson(options =>
             {
@@ -92,11 +92,11 @@ namespace Yokogawa.LMS.Business.WebAPI
             //custom middleware for exception handling
             app.UseMiddleware<CustomExceptionMiddleware>();
 
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API Demo v1");
-            });
+            //app.UseSwagger();
+            //app.UseSwaggerUI(c =>
+            //{
+            //    c.SwaggerEndpoint("/swagger/v1/swagger.json", "API Demo v1");
+            //});
 
             app.UseRouting();
             app.UseStaticFiles();
