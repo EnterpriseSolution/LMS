@@ -1,0 +1,14 @@
+﻿{
+  "locale": {
+    "en": "./src/langs/mobile.en.json",
+    "zh": "./src/langs/mobile.zh.json"
+  },
+  "currentLang": "en",
+  "AuthorizationUrl": "https://localhost:5001/",
+  "WebAPIUrl": null,
+  "templateFolder": "src/view/",
+  "skin": "nova",
+  "container": "body",
+  "appId": "ae948767-259e-44f7-a4b5-3733da34e781",
+  "keys": "[]"
+}

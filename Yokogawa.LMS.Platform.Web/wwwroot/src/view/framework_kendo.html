@@ -1,0 +1,609 @@
+﻿<!--Login-->
+<div>
+    <div id="loginForm">
+        <div class="loginTitle">
+            <div class="page-header text-center">
+                <h1 style="font-size:60px;">Welcome to eworkspace portal</h1>
+            </div>
+            <p class="text-center" style="font-size:30px;">Apply your leave and flight, and claim your trip settlement easily</p>
+        </div>
+        <div class="form row" style="padding-top:30px;">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="form-group"><h2><span class="glyphicon glyphicon-user" style="margin-right:10px"></span>Login</h2></div>
+                <div style="margin-top:10px" class="form-group">
+                    <input type="text" name="userId" class="form-control" style="width:280px;margin-left:5%" placeholder="User Name" />
+                </div>
+                <div style="margin-top:10px" class="form-group">
+                    <input type="password" name="password" class="form-control" style="width:280px;margin-left:5%" placeholder="Password" />
+                </div>
+                <div style="margin-top:10px"><button style="width:280px;margin-left:5%" class="btn btn-default">Login</button></div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+</div>
+<!--User Details-->
+<div>
+    <div id="userform">
+        <div class="form">
+            <span class="textbox" style="width:450px">
+                <label><span data-i18n='User Id'>User Id:</span><font color="red">*</font></label>
+                <input type="text" name="User Id" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.UserId" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label><span data-i18n="Name">Name:</span><font color="red">*</font></label>
+                <input type="text" name="Name" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.DisplayName" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label data-i18n='Company'>Company:</label>
+                <input type="text" name="Company" placeholder="Click to Enter" validationmessage="Enter {0}" data-bind="value:data.Company" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label data-i18n='Email'>Email:</label>
+                <input type="text" name="Email" placeholder="Click to Enter" data-bind="value:data.Email" data-email-msg="invalid email address" />
+            </span>
+            <span class="textbox password" style="width:450px">
+                <label><span data-i18n='Password' title="password must be at least 8 characters long and contain alphanumeric" data-role="tooltip" data-auto-hide="false" data-position="top">Password</span><font color="red">*</font></label>
+                <input type="password" name="Password" placeholder="Click to Enter" required data-bind="value:data.NewPassword" data-password-msg="password must be at lease 8 characters long and contain alphanumeric" />
+            </span>
+            <span class="textbox password" style="width:450px">
+                <label data-i18n='Confirm Password'>Confirm Password:<font color="red">*</font></label>
+                <input type="password" name="Confirm Password" placeholder="Click to Enter" data-bind="value:data.ConfirmedPassword" required data-confirmpassword-field="Password" data-confirmpassword-msg="confirmed password is different with password" onpaste="return false;" />
+            </span>
+        </div>
+    </div>
+</div>
+<!--Dashboard Details-->
+<div>
+    <div id="dashboardsettings">
+        <div class="dashboard-settings">
+            <div style="float:left;width:45%;min-width:600px">
+                <div class="form">
+                    <span class="textbox">
+                        <label><span data-i18n="Name:">Name:</span><font color="red">*</font></label>
+                        <input type="text" name="Name" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.Name" />
+                    </span>
+                    <span class="textbox">
+                        <label data-i18n="Default Dashboard:">Default Dashboard:</label>
+                        <select data-role="dropdownlist" data-bind="value:data.IsDefault">
+                            <option value="false">No</option>
+                            <option value="true">Yes</option>
+                        </select>
+                    </span>
+                    <div style="width:100%;margin-left:10px">
+                        <label Default data-i18n="Layout:">Layout:</label>
+                        <table style="margin-left:40px;" class="layout">
+                            <tr>
+                                <td>
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="col-xs-4"><div class="colgrid"></div></div>
+                                            <div class="col-xs-4"><div class="colgrid"></div></div>
+                                            <div class="col-xs-4"><div class="colgrid"></div></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-4"><div class="colgrid"></div></div>
+                                            <div class="col-xs-4"><div class="colgrid"></div></div>
+                                            <div class="col-xs-4"><div class="colgrid"></div></div>
+                                        </div>
+                                    </div>
+                                    <label data-i18n="3-Column Regular Dashboard">3-Column Regular Dashboard</label>
+                                </td>
+                                <td>
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="col-xs-3"><div class="colgrid"></div></div>
+                                            <div class="col-xs-6"><div class="colgrid"></div></div>
+                                            <div class="col-xs-3"><div class="colgrid"></div></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-6"><div class="colgrid"></div></div>
+                                            <div class="col-xs-6"><div class="colgrid"></div></div>
+                                        </div>
+
+                                    </div>
+                                    <label data-i18n="3-Column Multi-Focused Dashboard">3-Column Multi-Focused Dashboard</label>
+
+                                </td>
+                                <td>
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="col-xs-3"><div class="colgrid"></div></div>
+                                            <div class="col-xs-3"><div class="colgrid"></div></div>
+                                            <div class="col-xs-3"><div class="colgrid"></div></div>
+                                            <div class="col-xs-3"><div class="colgrid"></div></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12"><div class="colgrid"></div></div>
+                                        </div>
+
+                                    </div>
+                                    <label data-i18n="4-Column Overview Dashboard">4-Column Overview Dashboard</label>
+                                </td>
+                            </tr>
+                            <tr><td><br /></td><td></td><td></td></tr>
+                            <tr>
+                                <td>
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="col-xs-6"><div class="colgrid"></div></div>
+                                            <div class="col-xs-6"><div class="colgrid"></div></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-6"><div class="colgrid"></div></div>
+                                            <div class="col-xs-6"><div class="colgrid"></div></div>
+                                        </div>
+                                    </div>
+                                    <label data-i18n="2-Column Regular Dashboard">2-Column Regular Dashboard</label>
+                                </td>
+                                <td>
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="col-xs-4"><div class="colgrid"></div></div>
+                                            <div class="col-xs-4"><div class="colgrid"></div></div>
+                                            <div class="col-xs-4"><div class="colgrid"></div></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12"><div class="colgrid"></div></div>
+                                        </div>
+                                    </div>
+                                    <label data-i18n="3-Column Overview Dashboard">3-Column Overview Dashboard</label>
+                                </td>
+                                <td>
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="col-xs-6"><div class="colgrid" style="height:65px;margin-right:15px"></div></div>
+                                            <div class="col-xs-6">
+                                                <div class="row">
+                                                    <div class="col-xs-6"><div class="colgrid"></div></div>
+                                                    <div class="col-xs-6"><div class="colgrid"></div></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-6"><div class="colgrid"></div></div>
+                                                    <div class="col-xs-6"><div class="colgrid"></div></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <label data-i18n="3-Cloumn Focused Dashboard">3-Cloumn Focused Dashboard</label>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-left:20px;margin-right:10px;margin-top:10px; min-width:600px;float:left;">
+                <label data-i18n="Select Views:">Select Views:</label>
+                <div class="views">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Contact Details-->
+<div>
+    <div id="contactform">
+        <div class="form">
+            <span class="textbox" style="width:450px">
+                <label><span data-i18n="Name:">Name:</span><font color="red">*</font></label>
+                <input type="text" name="Name" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.ContactName" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label><span data-i18n='Email:'>Email:</span><font color="red">*</font></label>
+                <input type="text" name="Email" placeholder="Click to Enter" data-bind="value:data.ContactEmail" data-email-msg="invalid email address" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label data-i18n='Company:'>Company:</label>
+                <input type="text" name="Company" placeholder="Click to Enter" data-bind="value:data.Company" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label data-i18n='Mobile:'>Mobile:</label>
+                <input type="text" name="Mobile" placeholder="Click to Enter" data-bind="value:data.Mobile" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label data-i18n='Tel:'>Tel:</label>
+                <input type="text" name="Tel" placeholder="Click to Enter" data-bind="value:data.Extension" />
+            </span>
+            <!--<span class="textbox" style="width:450px">
+                <label data-i18n='User Id:'></label>
+                <input type="text" name="UserId" placeholder="Click to Enter"  data-bind="value:data.ContactId" />
+            </span>-->
+        </div>
+    </div>
+</div>
+<!--Menu Details-->
+<div>
+    <div id="menuform">
+        <div class="form">
+            <span class="textbox" style="width:450px">
+                <label><span data-i18n="Name:">Name:</span><font color="red">*</font></label>
+                <input type="text" name="Name" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.Name" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label data-i18n="Icon:">Icon:</label>
+                <input type="text" name="Icon" placeholder="Click to Enter" data-bind="value:data.Icon" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label data-i18n="Page:">Page:</label>
+                <select data-role="dropdownlist"
+                        data-option-label="Select an Option"
+                        data-value-primitive="true"
+                        data-text-field="Description"
+                        data-value-field="Id"
+                        data-bind="enabled:data.IsChecked, value: data.PageId, source: data.Pages"></select>
+            </span>
+            <span class="textbox" style="width:450px">
+                <label data-i18n="Parent:">Parent:</label>
+                <select data-role="dropdownlist"
+                        data-option-label="Select an Option"
+                        data-value-primitive="true"
+                        data-text-field="Name"
+                        data-value-field="Id"
+                        data-bind="enabled:data.IsChecked,value: data.ParentId, source: data.Parents"></select>
+            </span>
+            <span class="textbox" style="width:450px">
+                <label data-i18n="Order Id:">Order Id:<font color="red">*</font></label>
+                <input type="text" name="OrderId" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.OrderId" />
+            </span>
+        </div>
+    </div>
+</div>
+<!--Page Details-->
+<div>
+    <div id="pageform">
+        <div class="form">
+            <span class="textbox" style="width:450px">
+                <label><span data-i18n="Id:">Id:</span></label>
+                <input id="txtPageId" type="text" name="Id" placeholder="Click to Enter" validationmessage="Enter {0}" data-bind="value:data.Id" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label data-i18n="Page Url:">Page Url:<font color="red">*</font></label>
+                <input type="text" name="Url" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.Url,visible: data.IsSystem, disabled:data.IsSystem" />
+                <input name="pageurl" data-role="dropdownlist" data-text-field="name"
+                       data-value-field="name" data-bind="source:data.NameList,value:data.Url,invisible: data.IsSystem,disabled:data.IsSystem" data-option-label="Select an Option" required data-required-msg="Select ViewModel" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label data-i18n="Description:">Description:</label>
+                <input type="text" name="Description" placeholder="Click to Enter" data-bind="value:data.Description" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label data-i18n="Widget:" data-bind="invisible: data.IsSystem">Widget:</label>
+                <select data-role="dropdownlist"
+                        data-option-label="Select an Option"
+                        data-value-primitive="true"
+                        data-text-field="Name"
+                        data-value-field="Id"
+                        data-bind="value: data.WidgetId, source: data.Widgets,events:{change:onWidgetChange},invisible: data.IsSystem"></select>
+            </span>
+        </div>
+    </div>
+</div>
+<!--Widget Details-->
+<div>
+    <div id="widgetform">
+        <div>
+            <div class="form" style="display:inline-block;width:450px;vertical-align:top">
+                <p>
+                    <label><b data-i18n="Basic Information:">Basic Information:</b></label>
+                </p>
+                <span class="textbox" style="width:450px">
+                    <label><span data-i18n="Name:">Name:</span><font color="red">*</font></label>
+                    <input type="text" name="Name" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.Name" />
+                </span>
+                <span class="textbox" style="width:450px" data-bind="invisible:data.IsHide">
+                    <label data-i18n='Existing Widget:'>Existing Widget</label>
+                    <input type="checkbox" name="existingModule" style="min-width:18px;height:18px" data-bind="checked:data.UseTemplate, events:{change:onSearchModule}" />
+                    <span style="margin-left:5px;margin-right:5px">from</span><span data-bind="text:data.TemplateWebsiteName"></span>
+                </span>
+                <span class="textbox" style="width:450px">
+                    <label><span data-i18n="Instance Name:">Instance Name:</span><font color="red">*</font></label>
+                    <input type="text" name="Instance Name" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.InstanceName" />
+                </span>
+                <span class="textbox" style="width:450px">
+                    <label><span data-i18n="Description:">Description:</span><font color="red">*</font></label>
+                    <input type="text" name="Description" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.Description" />
+                </span>
+                <span class="textbox" style="width:450px">
+                    <label><span data-i18n="Widget File Path:">Widget File Path:</span></label>
+                    <input type="text" name="ScriptPath" data-bind="value:data.SourceFileName" placeholder="Click to Enter" />
+                </span>
+                <span class="textbox" style="width:450px">
+                    <label data-i18n='Service Url:'>Service Url:</label>
+                    <span data-bind="text:data.protocol"></span>
+                    <input type="text" style="min-width:40%" name="ServiceUrl" placeholder="Click to Enter" data-bind="value:data.ServiceUrl" data-serviceurl-msg="invalid service url" />
+                </span>
+                <span class="textbox" style="width:450px" data-bind="visible:data.EnableGlobalWidget">
+                    <label data-i18n='Global Scope:'>Global Scope:</label>
+                    <input type="checkbox" style="min-width:18px;height:18px" data-bind="checked:data.GlobalScope,events:{change:onScopeChange}" />
+                </span>
+            </div>
+            <div class="d-md-inline-block" style="width:600px;display:none">
+                <div data-bind="invisible:data.UseTemplate">
+                    <span class="textbox">
+                        <label><b data-i18n='Upload Source Files (.js, .html):'>Upload Source Files (.js,.json, .html):</b></label>
+                    </span>
+                    <span class="fileUpload" style="width:450px">
+                        <input name="sourcefiles" type="file" style="width:450px">
+                    </span>
+                    <span class="textbox" style="width:450px">
+                        <label><b data-i18n='Upload Image Files (.jpg, .png, .gif, .tif):'>Upload Image Files  (.jpg, .png, .gif, .tif):</b></label>
+                    </span>
+                    <span class="fileUpload" style="width:450px">
+                        <input name="imagefiles" type="file" multiple="multiple" style="width:450px">
+                    </span>
+                    <span class="textbox" style="width:450px">
+                        <label><b data-i18n='Upload Other Resource Files (.txt, .pdf, .docx, .doc):'>Upload Other Resource Files  (.txt, .pdf, .docx, .doc):</b></label>
+                    </span>
+                    <span class="fileUpload" style="width:450px">
+                        <input name="otherfiles" type="file" multiple="multiple" style="width:450px">
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--View Details-->
+<div>
+    <div id="viewform">
+        <label><b data-i18n="Basic Information:">Basic Information:</b></label>
+        <div class="form">
+            <span class="textbox" style="width:400px">
+                <label data-i18n="Type:">Type:</label>
+                <select data-role="dropdownlist" data-value-primitive="false" data-bind="value:data.ViewModelType,events:{change:onViewTypeChange}">
+                    <option value="eworkspace.framework.List">List</option>
+                    <option value="eworkspace.framework.Chart">Chart</option>
+                    <option value="">Others</option>
+                </select>
+            </span>
+            <span class="textbox" style="width:400px">
+                <label data-i18n="Widgets:">Widgets:</label>
+                <select class="widgetlist" data-role="dropdownlist" data-option-label="Select Widget" data-text-field="Name" data-value-field="Id" data-bind="value:data.WidgetId,source:data.WidgetSource,events:{change:onWidgetListChange}"></select>
+            </span>
+            <span class="textbox otherview" style="width:400px">
+                <label><span data-i18n="Name:">Name:</span><font color="red">*</font></label>
+                <input name="otherview" data-role="dropdownlist" data-text-field="name"
+                       data-value-field="name" data-bind="source:data.NameList,value:data.Name" data-option-label="Select an Option" required data-required-msg="Select ViewModel" />
+            </span>
+            <span class="textbox customview" style="width:400px">
+                <label><span data-i18n="Name:">Name:</span><font color="red">*</font></label>
+                <input type="text" name="Name" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.Name" />
+            </span>
+            <span class="textbox" style="width:400px">
+                <label data-i18n="Description:">Description:<font color="red">*</font></label>
+                <input type="text" name="Description" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.Description" />
+            </span>
+            <span class="textbox customview" style="width:400px">
+                <label data-i18n="Service:">Service:<font color="red">*</font></label>
+                <input name="customview" class="action" data-role="dropdownlist" data-option-label="Select Service" data-text-field="name"
+                       data-value-field="name" data-bind="source:data.NameList,value:data.ActionName" required data-required-msg="Select Service" />
+            </span>
+        </div>
+    </div>
+</div>
+<!--Model Detail-->
+<div>
+    <div id="modelform">
+        <div class="form">
+            <label><b data-i18n="Model:">Model:</b></label>
+            <div>
+                <span class="textbox" style="width:100%">
+                    <label data-i18n="Title:">Title:</label>
+                    <input type="text" name="Name" placeholder="Click to Enter" data-bind="value:data.Title" />
+                </span>
+                <div class="chartmodel">
+                    <span class="textbox" style="width:100%">
+                        <label><span data-i18n="Chart Type:">Chart Type:</span><font color="red">*</font></label>
+                        <select data-role="dropdownlist" data-option-label="Select Chart Type" data-bind="value:CModel.chartType">
+                            <option value="line" data-i18n="Line">Line</option>
+                            <option value="bar" data-i18n="Bar">Bar</option>
+                            <option value="column" data-i18n="Column">Column</option>
+                            <option value="area" data-i18n="Area">Area</option>
+                            <option value="pie" data-i18n="Pie">Pie</option>
+                            <option value="donut" data-i18n="Donut">Donut</option>
+                        </select>
+                    </span>
+                    <span class="textbox" style="width:100%">
+                        <label><span data-i18n="Series Colors:">Series Colors:</span></label>
+                        <input type="text" name="SeriesColors" placeholder="Click to Enter" data-bind="value:data.serieColorList" />
+                    </span>
+                    <span class="textbox" style="width:100%">
+                        <label><span data-i18n="Category Axis:">Category Axis:</span><font color="red">*</font></label>
+                        <input type="text" name="CategoryAxis" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:CModel.categoryField" />
+                    </span>
+                    <div><span class="textbox"><label data-i18n="Value Asix:">Value Asix:</label></span></div>
+                </div>
+                <div class="listmodel">
+                    <span class="textbox"><label data-i18n="Columns:">Columns:</label></span>
+                </div>
+                <div class="grid" data-role="grid"
+                     data-editable="true"
+                     data-toolbar="['create', 'save']"
+                     data-columns="[
+                                 { 'field': 'title', 'width': 160 },
+                                 { 'field': 'field' },
+                                 { 'command':'destroy', 'width':150 }
+
+                     ]"
+                     data-bind="source: data.Items, events: {saveChanges: onSave, remove:onRemove}"
+                     style="height: 200px"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Website Details-->
+<div>
+    <div id="websiteform">
+        <div class="form">
+            <span class="textbox" style="width:450px">
+                <label><span data-i18n="Name:">Name:</span><font color="red">*</font></label>
+                <input type="text" name="Name" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.Name" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label data-i18n="Home Page:">Home Page:</label>
+                <select data-role="dropdownlist"
+                        data-value-primitive="true"
+                        data-text-field="Description"
+                        data-value-field="Id"
+                        data-bind="value: data.HomePageId, source: data.Pages"></select>
+            </span>
+            <span class="textbox" style="width:450px">
+                <label data-i18n="Admin Role:">Admin Role:</label>
+                <select data-role="dropdownlist"
+                        data-value-primitive="true"
+                        data-text-field="Name"
+                        data-value-field="Id"
+                        data-bind="value: data.AdminRoleId, source: data.Roles"></select>
+            </span>
+            <span class="textbox" style="width:450px">
+                <label><span data-i18n="Audit trail API:">Audit trail API:</span></label>
+                <span data-bind="text:data.protocol"></span>
+                <input type="text" style="min-width:40%" placeholder="Click to Enter" data-bind="value:data.AuditTrailAPI" data-serviceurl-msg="invalid API" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label><span data-i18n="Route:">Route:</span></label>
+                <input type="text" style="min-width:40%" data-bind="value:data.Route" placeholder="Click to Enter" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label data-i18n="Default Language:">Default Language:<font color="red">*</font></label>
+                <select data-role="dropdownlist"
+                        data-value-primitive="true"
+                        data-text-field="Name"
+                        data-value-field="Id"
+                        data-bind="value: data.DefaultLanguageId, source: data.Languages" required validationmessage="Please select Language"></select>
+            </span>
+        </div>
+    </div>
+</div>
+<!--Assign 2FA To Role-->
+<div>
+    <div id="2FAform">
+        <div class="form k-content">
+            <h6 style="margin-top: 15px;margin-bottom: 10px;" data-i18n="Please select 2FA as the below:">Please select 2FA as the below:</h6>
+            <span class="checkBoxList">
+            </span>
+        </div>
+    </div>
+</div>
+<!--User 2FA Setting-->
+<div>
+    <script id="User2FAform" type="text/x-kendo-template">
+        <div class="User2FAform">
+            # for (var i = 0; i < data.length; i++) { #
+            <span class='textbox' style='width:600px;'>
+                <label data-i18n='#= data[i].Name# Secret:'>#= data[i].Name# Secret:</label>
+                <input class='k-textbox' type='text' readonly name='secret' style="min-width:0" value="#= data[i].Secret#" />
+                <button id="provider_#=data[i].ProviderId#" class="k-button k-primary generate" data-i18n="Generate secret">Generate Secret</button>
+            </span><br />
+            # } #
+        </div>
+    </script>
+</div>
+<!--Widget Setting-->
+<div>
+    <div id="widgetSettingsForm">
+        <div class="form">
+            <div style='margin:10px;'>
+                <span style='font-size:16px' data-i18n="Widget:">Widget:</span>
+                <select class="Widgets" data-role='dropdownlist' data-value-primitive='true' data-text-field='WidgetName' data-value-field='WidgetId' data-bind='value: data.SelectedWidgetId, source: data.WidgetSettings'></select>
+            </div>
+            <h3 style='margin-left:5px;margin-top:5px;margin-bottom:10px;font-size:16px;' data-i18n="Parameters:">Parameters:</h3>
+            <div class='grid' data-role="grid"
+                 data-editable="true"
+                 data-toolbar="['create', 'save']"
+                 data-columns="[
+                                 { 'field': 'Title', 'title':'Name'  },
+                                 { 'field': 'Value','title':'Value' },
+                                 { 'command': 'destroy' }
+                 ]"
+                 data-bind="source: data.parameters"
+                 style='border-width:1px 0px 1px 0px;height:300px'></div>
+        </div>
+    </div>
+</div>
+<!--Module Permission-->
+<div>
+    <div id="modulePermissionForm">
+        <div class="form">
+            <div style='margin:10px;'>
+                <span style='font-size:16px' data-i18n="Widget:">Widget:</span>
+                <select class="Widgets" data-role='dropdownlist' 
+                        data-value-primitive='false' 
+                        data-text-field='WidgetName' 
+                        data-value-field='WidgetId' 
+                        data-option-label='All'
+                        data-bind='value: data.SelectedWidgetId, source: data.WidgetSettings'></select>
+            </div>
+            <h3 style='margin-left:5px;margin-top:5px;margin-bottom:10px;font-size:16px;' data-i18n="Resources:"></h3>
+            <div class='treelist' style='border-width:1px 0px 1px 0px'></div>
+        </div>
+    </div>
+</div>
+<!--Client Setting-->
+<div>
+    //client settings
+    <div id="clientform">
+        <div class="form">
+            <table style="width:100%">
+                <tr>
+                    <td style="width:200px" data-i18n="Client Id:">Client Id:</td>
+                    <td style="width:5px"></td>
+                    <td> <input class="k-textbox" type="text" data-bind="value: data.Id" style="margin-top:5px;width:50%;background-color:gainsboro" disabled /></td>
+                </tr>
+                <tr>
+                    <td><span data-i18n="Client Name:">Client Name:</span><font color="red">*</font></td>
+                    <td></td>
+                    <td><input name="Client Name" class="k-textbox" type="text" data-bind="value: data.Name" style="margin-top:5px;width:50%" required validationmessage="Enter {0}" /></td>
+                </tr>
+                <tr>
+                    <td><span data-i18n='Domain:'>Domain:</span><font color="red">*</font></td>
+                    <td></td>
+                    <td><input name="Client Domain" class="k-textbox" type="text" data-bind="value: data.AllowOrignal" style="margin-top:5px;width:50%" required validationmessage="Enter {0}" /></td>
+                </tr>
+                <tr>
+                    <td data-i18n='Hash Secret:'>Hash Secret:</td>
+                    <td></td>
+                    <td><input name="Secret" class="k-textbox" type="text" data-bind="value: data.HashSecret" style="margin-top:5px;width:50%;background-color:gainsboro" disabled /></td>
+                </tr>
+                <tr>
+                    <td><span data-i18n='Token Life Time:'>Token Life Time:</span><font color="red">*</font></td>
+                    <td></td>
+                    <td>
+                        <input name="token life time" class="k-textbox" type="text" data-bind="value: data.TokenLifeTime" style="margin-top:5px;width:50%" required validationmessage="Enter {0}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><span data-i18n='Refresh Token Life Time:'>Refresh Token Life Time:</span><font color="red">*</font></td>
+                    <td></td>
+                    <td>
+                        <input name="refresh token life time" class="k-textbox" type="text" data-bind="value: data.RefreshTokenLifeTime" style="margin-top:5px;width:50%" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><span data-i18n='Enable Refresh Token'>Enable Refresh Token:</span><font color="red">*</font></td>
+                    <td></td>
+                    <td>
+                        <input type="checkbox" class="k-checkbox" data-bind="checked: data.EnableRefreshToken" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><span data-i18n='Enable SSO'>Enable SSO:</span><font color="red">*</font></td>
+                    <td></td>
+                    <td>
+                        <input type="checkbox" class="k-checkbox" data-bind="checked: data.EnableSSO" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><span data-i18n='Enable MFA'>Enable MFA:</span><font color="red">*</font></td>
+                    <td></td>
+                    <td>
+                        <input type="checkbox" class="k-checkbox" data-bind="checked: data.Enable2FA" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <br />
+        <div class='grid' style="display:inline-grid"></div>
+    </div>
+</div>

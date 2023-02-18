@@ -1,0 +1,133 @@
+﻿<!--VesselLoadingOrder-->
+
+<div>
+    <div id="VesselLoadingOrderForm">
+        <div class="form" style="width:100%">
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        Destination
+                        <span class="required">*</span>
+                        <input type="text" name="Destination" data-bind="value:data.Destination" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        ETA
+                        <span class="required">*</span>
+                        <input data-role ="datepicker" name="ETA" data-bind=" enabled: true, value:data.Eta"  required validationMessage="{0} is required">
+                     </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        LoadedQty
+                        <span class="required">*</span>
+                        <input type="text" name="LoadedQty" data-bind="value:data.LoadedQty" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        OperationType
+                        <span class="required">*</span>
+                        <input type="text" name="OperationType" data-bind="value:data.OperationType" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        OrderNo
+                        <span class="required">*</span>
+                        <input type="text" name="OrderNo" data-bind="value:data.OrderNo" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        OrderQty
+                        <span class="required">*</span>
+                        <input type="text" name="OrderQty" data-bind="value:data.OrderQty" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        Remarks
+                        <span class="required">*</span>
+                        <input type="text" name="Remarks" data-bind="value:data.Remarks" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        ShipmentNo
+                        <span class="required">*</span>
+                        <input type="text" name="ShipmentNo" data-bind="value:data.ShipmentNo" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        SourceType
+                        <span class="required">*</span>
+                        <input type="text" name="SourceType" data-bind="value:data.SourceType" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        Status
+                        <span class="required">*</span>
+                        <select data-role="combobox" name="Status" data-value-primitive="true" data-text-field="text" data-value-field="value" data-bind="value:data.Status, source: data.StatusList,invisible: true" required validationMessage="{0} is required" />
+                      </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        UOM
+                        <span class="required">*</span>
+                        <select data-role="combobox" name="UOM" data-value-primitive="true" data-text-field="text" data-value-field="value"  data-bind="value:data.Uom, source: data.UomList,invisible: true" required validationMessage="{0} is required" />
+                      </div>
+                    <div class="t-fieldlist">
+                        VesselId
+                        <select data-role="combobox" name="VesselId" data-value-primitive="true" data-text-field="text" data-value-field="value"  data-bind="value:data.St_VesselId, source: data.VesselList,invisible: true"  />
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        CustomerId
+                        <span class="required">*</span>
+                        <select data-role="combobox" name="CustomerId" data-value-primitive="true" data-text-field="text" data-value-field="value"  data-bind="value:data.St_CustomerId, source: data.CustomerList,invisible: true" required validationMessage="{0} is required" />
+                    </div>
+                    <div class="t-fieldlist">
+                        JettyId
+                        <span class="required">*</span>
+                        <select data-role="combobox" name="JettyId" data-value-primitive="true" data-text-field="text" data-value-field="value"  data-bind="value:data.St_JettyId, source: data.JettyList,invisible: true" required validationMessage="{0} is required" />
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        ProductId
+                        <select data-role="combobox" name="ProductId" data-value-primitive="true" data-text-field="text" data-value-field="value" data-bind="value:data.St_ProductId, source: data.ProductList,invisible: true"  />
+                    </div>
+                   
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

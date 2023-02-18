@@ -1,0 +1,1193 @@
+﻿<!--BOL Form for Shipment Document-->
+<div>
+    <div id="shipmentBOL">
+        <style>
+            
+                .vesselscheduleform span.block {
+                    border: 1px solid #cccccc;
+                }
+
+            .bol-view span.text {
+                min-height: 40px
+            }
+
+            .bol-view-row .t-fieldlist span {
+                display: block;
+                width: 100%;
+            }
+
+            .title {
+                text-decoration: underline;
+                font-weight: bold;
+                color: black;
+            }
+        </style>
+
+        <div class="form vesselscheduleform" style="width:100%">
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col3">
+                    <div class="title">Document</div>
+
+                    <div class="t-fieldlist">
+                        Doc No
+                        <input type="text" data-bind="value:data.BOLNo" readonly="readonly" class="k-textbox">
+                    </div>
+                    <div class="t-fieldlist">
+                        Customer Name
+                        <span class="k-numeric-wrap t-textbox-wrap">
+                            <input type="text"  data-bind="value:data.CustomerName" disabled="disabled" class="k-textbox">
+                        </span>
+                    </div>
+                    <div class="t-fieldlist">
+                        Destination
+                        <input type="text" value="" data-bind="value:data.Destination" class="k-textbox">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18 t-col3">
+                    <div class="t-fieldlist">
+                        Product Sell Name
+                        <input type="text" value="" data-bind="value:data.SellingName" class="k-textbox">
+                    </div>
+                    <div class="t-fieldlist">
+                        UOM
+                        <select style="width:100%" class="block" data-role="dropdownlist" data-auto-bind="false" data-value-primitive="true" data-text-field="text" data-value-field="value" data-bind="value:data.UOM,source:data.UOMList"></select>
+                    </div>
+                    <div class="t-fieldlist">
+                        Sail Date
+                        <input type="text" data-type="date" readonly="readonly" class="end" data-role="datetimepicker" data-bind="value:data.SailDate" id="plannedDepartureDate" />
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col3">
+                    <div class="title"></div>
+                    <div class="t-fieldlist">
+                        Custom Permit No
+                        <input type="text" value="" data-bind="value:data.CustomPermitNo" class="k-textbox">
+                    </div>
+                    <div class="t-fieldlist">
+                        Consignor
+                        <input type="text" value="" data-bind="value:data.Consignor" class="k-textbox">
+                    </div>
+                    <div class="t-fieldlist">
+                        Consignee
+                        <input type="text" value="" data-bind="value:data.Consignee" class="k-textbox">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col3">
+                    <div class="title"></div>
+                    <div class="t-fieldlist" style="vertical-align: top">
+                        Freight
+                        <input type="text" value="" data-bind="value:data.Freight" class="k-textbox">
+
+                    </div>
+                    <div class="t-fieldlist">
+                        Country of Lading
+                        <input type="text" value="" data-bind="value:data.CountryOfLoading" class="k-textbox">
+                    </div>
+                    <div class="t-fieldlist">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col3">
+                    <div class="t-fieldlist" style="width: 97%">
+                        Remark
+                        <textarea id="remark" name="remark" data-bind="value:data.Remark" data-role="textarea"
+                                  data-resizable="none"
+                                  data-max-length="500"
+                                  data-rows="5" placeholder="Enter your remark here"></textarea>
+
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col3">
+                    <div class="title">Receipt for Sample</div>
+
+                    <div class="t-fieldlist">
+                        Type of Package
+                        <input type="text" data-bind="value:data.TypeOfPackaging" class="k-textbox">
+
+                    </div>
+                    <div class="t-fieldlist">
+                        No of sample
+                        <input type="text"  data-bind="value:data.NoOfSamples" class="k-textbox">
+                    </div>
+                    <div class="t-fieldlist">
+                        Seal No
+                        <input type="text" value="" data-bind="value:data.SealNo" class="k-textbox">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col3">
+                    <div class="title">Shipping/Custom Invoice</div>
+
+                    <div class="t-fieldlist">
+                        Currency
+                        <input type="text" data-bind="value:data.Currency" class="k-textbox">
+                    </div>
+                    <div class="t-fieldlist">
+                        Price Unit
+                        <input type="text" format="n0"  data-bind="value:data.PricingUnit" class="k-textbox">
+                    </div>
+                    <div class="t-fieldlist">
+                        Unit Value
+                        <input type="text" format="n0"  data-bind="value:data.UnitValue" class="k-textbox">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Time sheet for Shipment Document-->
+<div>
+<script type="text/x-kendo-tmpl" id="shipmentTimesheet">
+        <div>
+            <style>
+
+                .timesheetform span.block {
+                    border: 1px solid \\#cccccc;
+                }
+            </style>
+
+            <div class="container form timesheetform">
+                <div class="row">
+                    <div class="tw-col-1"></div>
+                    <div class="tw-col-18  t-col3">
+                        <div class="title">Vessel Time sheet</div>
+                        <div class="t-fieldlist">
+                            Arrival at Pilot Station
+                            <input type="text" data-role="datetimepicker" data-interval="15"
+                                   data-type="date" data-bind="value:data.ArrvialAtPilotStation" />
+                        </div>
+                        <div class="t-fieldlist">
+                            Health Immigration Clear
+                            <input type="text" data-role="datetimepicker"
+                                   data-interval="15" data-type="date" data-bind="value:data.HealthImmCleared" />
+                        </div>
+                        <div class="t-fieldlist">
+                            Pilot onboard for berth
+                            <input type="text"
+                                   data-role="datetimepicker" data-interval="15"
+                                   data-type="date" data-bind="value:data.BookingPilot" />
+                        </div>
+                    </div>
+                    <div class="tw-col-1"></div>
+                </div>
+
+                <div class="row">
+                    <div class="tw-col-1"></div>
+                    <div class="tw-col-18  t-col3">
+
+                        <div class="t-fieldlist">
+                            1st Line ashore
+                            <input type="text" data-role="datetimepicker" data-interval="15"
+                                   data-type="date" data-bind="value:data.FirstLineAshore" />
+
+                        </div>
+                        <div class="t-fieldlist">
+                            Mooring Complete
+                            <input type="text" data-role="datetimepicker" data-interval="15"
+                                   data-type="date" data-bind="value:data.MooringCompleted" />
+
+                        </div>
+                        <div class="t-fieldlist">
+                            Start deballasting
+                            <input type="text" data-role="datetimepicker" data-interval="15"
+                                   data-type="date" data-bind="value:data.StartedDeballasting" />
+
+                        </div>
+                    </div>
+                    <div class="tw-col-1"></div>
+                </div>
+
+
+                <div class="row">
+                    <div class="tw-col-1"></div>
+                    <div class="tw-col-18  t-col3">
+                        <div class="title"></div>
+                        <div class="t-fieldlist">
+                            Finish deballasting
+                            <input type="text" data-role="datetimepicker" data-interval="15"
+                                   data-type="date" data-bind="value:data.FinishedDeballasting" />
+
+                        </div>
+                        <div class="t-fieldlist">
+                            Start ullaging/sampling/inspection
+                            <input type="text" data-role="datetimepicker" data-interval="15"
+                                   data-type="date" data-bind="value:data.StartedUllagingSampling" />
+
+                        </div>
+                        <div class="t-fieldlist">
+                            Finish ullaging/sampling/inspection
+                            <input type="text" data-role="datetimepicker" data-interval="15"
+                                   data-type="date" data-bind="value:data.FinishedUllagingSampling" />
+
+                        </div>
+                    </div>
+                    <div class="tw-col-1"></div>
+                </div>
+
+                <div class="row">
+                    <div class="tw-col-1"></div>
+                    <div class="tw-col-18  t-col3">
+                        <div class="title"></div>
+                        <div class="t-fieldlist">
+                            Notice readiness tendered
+                            <input type="text" data-role="datetimepicker" data-interval="15"
+                                   data-type="date" data-bind="value:data.NoticeTendered" />
+                        </div>
+                        <div class="t-fieldlist">
+                            Notice readiness Accepted
+                            <input type="text" data-role="datetimepicker" data-interval="15"
+                                   data-type="date" data-bind="value:data.NoticeAccepted" />
+                        </div>
+                        <div class="t-fieldlist">
+                            Start ballasting
+                            <input type="text" data-role="datetimepicker" data-interval="15"
+                                   data-type="date" data-bind="value:data.StartedBallasting" />
+                        </div>
+                    </div>
+                    <div class="tw-col-1"></div>
+                </div>
+
+                <div class="row">
+                    <div class="tw-col-1"></div>
+                    <div class="tw-col-18  t-col3">
+                        <div class="title"></div>
+                        <div class="t-fieldlist">
+                            Finish ballasting
+                            <input type="text" data-role="datetimepicker" data-interval="15"
+                                   data-type="date" data-bind="value:data.FinishedBallasting" />
+
+                        </div>
+                        <div class="t-fieldlist">
+                            Document onboard
+                            <input type="text" data-role="datetimepicker" data-interval="15"
+                                   data-type="date" data-bind="value:data.DocumentOnBoard" />
+
+                        </div>
+                        <div class="t-fieldlist">
+                            Pilot onboard for Sailing
+                            <input type="text" data-role="datetimepicker" data-interval="15"
+                                   data-type="date" data-bind="value:data.PilotSailing" />
+
+                        </div>
+                    </div>
+                    <div class="tw-col-1"></div>
+                </div>
+
+                <div class="row">
+                    <div class="tw-col-1"></div>
+                    <div class="tw-col-18  t-col3">
+                        <div class="title"></div>
+                        <div class="t-fieldlist">
+                            Start Unmooring
+                            <input type="text" data-role="datetimepicker" data-interval="15"
+                                   data-type="date" data-bind="value:data.StartUnmooring" />
+
+                        </div>
+                        <div class="t-fieldlist">
+                            Vessel All Clear
+                            <input type="text" data-role="datetimepicker" data-interval="15"
+                                   data-type="date" data-bind="value:data.VesselAllClear" />
+
+                        </div>
+                        <div class="t-fieldlist">
+
+
+                        </div>
+                    </div>
+                    <div class="tw-col-1"></div>
+                </div>
+
+
+                <div class="row">
+                    <div class="tw-col-1"></div>
+                    <div class="tw-col-18  t-col3">
+                        <div class="title">Operation Time sheet</div>
+                        <div class="t-fieldlist">
+                            Started Loading
+                            <input type="text" data-role="datetimepicker" data-interval="15"
+                                   data-type="date" data-bind="value:data.OperationTimesheet.StartedLoading" />
+
+                        </div>
+                        <div class="t-fieldlist">
+                            Started ullaging/sampling/inspection
+                            <input type="text" data-role="datetimepicker" data-interval="15"
+                                   data-type="date" data-bind="value:data.OperationTimesheet.StartedUllaging1" />
+
+                        </div>
+                        <div class="t-fieldlist">
+
+
+                        </div>
+                    </div>
+                    <div class="tw-col-1"></div>
+                </div>
+
+                <div class="row">
+                    <div class="tw-col-1"></div>
+                    <div class="tw-col-18  t-col3">
+                        <div class="title"></div>
+                        <div class="t-fieldlist">
+                            Finished Loading
+                            <input type="text" data-role="datetimepicker" data-interval="15"
+                                   data-type="date" data-bind="value:data.OperationTimesheet.FinishedLoading" />
+
+                        </div>
+                        <div class="t-fieldlist">
+                            Finished ullaging/sampling/inspection
+                            <input type="text" data-role="datetimepicker" data-interval="15"
+                                   data-type="date" data-bind="value:data.OperationTimesheet.FinishedUllaging1" />
+
+                        </div>
+                        <div class="t-fieldlist">
+
+
+                        </div>
+                    </div>
+                    <div class="tw-col-1"></div>
+                </div>
+
+                <!--Stoppage 1-->
+                <div class="row" data-bind="visible:data.TimesheetStoppage.Stoppage1">
+                    <div class="tw-col-1"></div>
+                    <div class="tw-col-18  t-col3">
+                        <div class="title"></div>
+                        <div class="t-fieldlist">
+                            Stoppage From
+                            <input type="text" data-role="datetimepicker" data-interval="15" data-type="date" data-bind="value:data.TimesheetStoppage.StoppageFrom1" />
+                        </div>
+                        <div class="t-fieldlist">
+                            Stoppage To
+                            <input type="text" data-role="datetimepicker" data-interval="15" data-type="date" data-bind="value:data.TimesheetStoppage.StoppageTo1" />
+                        </div>
+                        <div class="t-fieldlist">
+                            Stoppage Reason
+                            <input type="text" data-bind="value:data.TimesheetStoppage.StoppageReason1" />
+                        </div>
+                    </div>
+                    <div class="tw-col-1"></div>
+                </div>
+
+                <!--Stoppage 2-->
+                <div class="row">
+                    <div class="tw-col-1"></div>
+                    <div class="tw-col-18  t-col3">
+                        <div class="title"></div>
+                        <div class="t-fieldlist">
+                            Stoppage From
+                            <input type="text" data-role="datetimepicker" data-interval="15" data-type="date" data-bind="value:data.TimesheetStoppage.StoppageFrom2" />
+
+
+                        </div>
+                        <div class="t-fieldlist">
+                            Stoppage To
+                            <input type="text" data-role="datetimepicker" data-interval="15" data-type="date" data-bind="value:data.TimesheetStoppage.StoppageTo2" />
+
+
+                        </div>
+                        <div class="t-fieldlist">
+                            Stoppage Reason
+                            <input type="text" data-bind="value:data.TimesheetStoppage.StoppageReason2" />
+
+
+                        </div>
+                    </div>
+                    <div class="tw-col-1"></div>
+                </div>
+
+                <!--Stoppage 3-->
+                <div class="row" data-bind="visible:data.TimesheetStoppage.Stoppage3">
+                    <div class="tw-col-1"></div>
+                    <div class="tw-col-18  t-col3">
+                        <div class="title"></div>
+                        <div class="t-fieldlist">
+                            Stoppage From
+                            <input type="text" data-role="datetimepicker" data-interval="15" data-type="date" data-bind="value:data.TimesheetStoppage.StoppageFrom3" />
+
+
+                        </div>
+                        <div class="t-fieldlist">
+                            Stoppage To
+                            <input type="text" data-role="datetimepicker" data-interval="15" data-type="date" data-bind="value:data.TimesheetStoppage.StoppageTo3" />
+
+
+                        </div>
+                        <div class="t-fieldlist">
+                            Stoppage Reason
+                            <input type="text" data-bind="value:data.TimesheetStoppage.StoppageReason3" />
+
+
+                        </div>
+                    </div>
+                    <div class="tw-col-1"></div>
+                </div>
+
+                <!--Stoppage 4-->
+                <div class="row">
+                    <div class="tw-col-1"></div>
+                    <div class="tw-col-18  t-col3">
+                        <div class="title"></div>
+                        <div class="t-fieldlist">
+                            Stoppage From
+                            <input type="text" data-role="datetimepicker" data-interval="15" data-type="date" data-bind="value:data.TimesheetStoppage.StoppageFrom4" />
+
+
+                        </div>
+                        <div class="t-fieldlist">
+                            Stoppage To
+                            <input type="text" data-role="datetimepicker" data-interval="15" data-type="date" data-bind="value:data.TimesheetStoppage.StoppageTo4" />
+
+
+                        </div>
+                        <div class="t-fieldlist">
+                            Stoppage Reason
+                            <input type="text" data-bind="value:data.TimesheetStoppage.StoppageReason4" />
+
+
+                        </div>
+                    </div>
+                    <div class="tw-col-1"></div>
+                </div>
+
+                <!--Stoppage 5-->
+                <div class="row" data-bind="visible:data.TimesheetStoppage.Stoppage5">
+                    <div class="tw-col-1"></div>
+                    <div class="tw-col-18  t-col3">
+                        <div class="title"></div>
+                        <div class="t-fieldlist">
+                            Stoppage From
+                            <input type="text" data-role="datetimepicker" data-interval="15" data-type="date" data-bind="value:data.TimesheetStoppage.StoppageFrom5" />
+
+
+                        </div>
+                        <div class="t-fieldlist">
+                            Stoppage To
+                            <input type="text" data-role="datetimepicker" data-interval="15" data-type="date" data-bind="value:data.TimesheetStoppage.StoppageTo5" />
+
+
+                        </div>
+                        <div class="t-fieldlist">
+                            Stoppage Reason
+                            <input type="text" data-bind="value:data.TimesheetStoppage.StoppageReason5" />
+
+
+                        </div>
+                    </div>
+                    <div class="tw-col-1"></div>
+                </div>
+
+                <!--Stoppage 6-->
+                <div class="row" data-bind="visible:data.TimesheetStoppage.Stoppage6">
+                    <div class="tw-col-1"></div>
+                    <div class="tw-col-18  t-col3">
+                        <div class="title"></div>
+                        <div class="t-fieldlist">
+                            Stoppage From
+                            <input type="text" data-role="datetimepicker" data-interval="15" data-type="date" data-bind="value:data.TimesheetStoppage.StoppageFrom6" />
+
+
+                        </div>
+                        <div class="t-fieldlist">
+                            Stoppage To
+                            <input type="text" data-role="datetimepicker" data-interval="15" data-type="date" data-bind="value:data.TimesheetStoppage.StoppageTo6" />
+
+
+                        </div>
+                        <div class="t-fieldlist">
+                            Stoppage Reason
+                            <input type="text" data-bind="value:data.TimesheetStoppage.StoppageReason6" />
+
+
+                        </div>
+                    </div>
+                    <div class="tw-col-1"></div>
+                </div>
+
+                <!--Stoppage 7-->
+                <div class="row" data-bind="visible:data.TimesheetStoppage.Stoppage7">
+                    <div class="tw-col-1"></div>
+                    <div class="tw-col-18  t-col3">
+                        <div class="title">Jetty Schedule</div>
+                        <div class="t-fieldlist">
+                            Stoppage From
+                            <input type="text" data-role="datetimepicker" data-interval="15" data-type="date" data-bind="value:data.TimesheetStoppage.StoppageFrom7" />
+                        </div>
+                        <div class="t-fieldlist">
+                            Stoppage To
+                            <input type="text" data-role="datetimepicker" data-interval="15" data-type="date" data-bind="value:data.TimesheetStoppage.StoppageTo7" />
+
+                        </div>
+                        <div class="t-fieldlist">
+                            Stoppage Reason
+                            <input type="text" data-bind="value:data.TimesheetStoppage.StoppageReason7" />
+
+                        </div>
+                    </div>
+                    <div class="tw-col-1"></div>
+                </div>
+
+                <!--Stoppage 8-->
+
+                <div class="row" data-bind="visible:data.TimesheetStoppage.Stoppage8">
+                    <div class="tw-col-1"></div>
+                    <div class="tw-col-18  t-col3">
+                        <div class="title"></div>
+                        <div class="t-fieldlist">
+                            Stoppage From
+                            <input type="text" data-role="datetimepicker" data-interval="15" data-type="date" data-bind="value:data.TimesheetStoppage.StoppageFrom8" />
+
+
+                        </div>
+                        <div class="t-fieldlist">
+                            Stoppage To
+                            <input type="text" data-role="datetimepicker" data-interval="15" data-type="date" data-bind="value:data.TimesheetStoppage.StoppageTo8" />
+
+
+                        </div>
+                        <div class="t-fieldlist">
+                            Stoppage Reason
+                            <input type="text" data-bind="value:data.TimesheetStoppage.StoppageReason8" />
+
+
+                        </div>
+                    </div>
+                    <div class="tw-col-1"></div>
+                </div>
+
+                <!--Stoppage 9-->
+                <div class="row" data-bind="visible:data.TimesheetStoppage.Stoppage9">
+                    <div class="tw-col-1"></div>
+                    <div class="tw-col-18  t-col3">
+                        <div class="title"></div>
+                        <div class="t-fieldlist">
+                            Stoppage From
+                            <input type="text" data-role="datetimepicker" data-interval="15" data-type="date" data-bind="value:data.TimesheetStoppage.StoppageFrom9" />
+
+
+                        </div>
+                        <div class="t-fieldlist">
+                            Stoppage To
+                            <input type="text" data-role="datetimepicker" data-interval="15" data-type="date" data-bind="value:data.TimesheetStoppage.StoppageTo9" />
+
+
+                        </div>
+                        <div class="t-fieldlist">
+                            Stoppage Reason
+                            <input type="text" data-bind="value:data.TimesheetStoppage.StoppageReason9" />
+
+
+                        </div>
+                    </div>
+                    <div class="tw-col-1"></div>
+                </div>
+
+                <!--Stoppage 10-->
+                <div class="row" data-bind="visible:data.TimesheetStoppage.Stoppage10">
+                    <div class="tw-col-1"></div>
+                    <div class="tw-col-18  t-col3">
+                        <div class="title"></div>
+                        <div class="t-fieldlist">
+                            Stoppage From
+                            <input type="text" data-role="datetimepicker" data-interval="15" data-type="date" data-bind="value:data.TimesheetStoppage.StoppageFrom10" />
+
+
+                        </div>
+                        <div class="t-fieldlist">
+                            Stoppage To
+                            <input type="text" data-role="datetimepicker" data-interval="15" data-type="date" data-bind="value:data.TimesheetStoppage.StoppageTo10" />
+
+
+                        </div>
+                        <div class="t-fieldlist">
+                            Stoppage Reason
+                            <input type="text" data-bind="value:data.TimesheetStoppage.StoppageReason10" />
+
+
+                        </div>
+                    </div>
+                    <div class="tw-col-1"></div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+
+                    </div>
+                </div>
+
+                <div class="title"></div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+
+                    </div>
+                </div>
+
+                <!--Stoppage 1-->
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                </div>
+
+                <!--Stoppage 2-->
+                <div class="row" data-bind="visible:data.TimesheetStoppage.Stoppage2">
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row" data-bind="visible:data.TimesheetStoppage.Stoppage4">
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row" >
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+                            
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+                            
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="t-fieldlist">
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="width: 96%; margin-left: 2%;">
+
+            </div>
+        </div>
+
+    </script>
+</div>
+
+<!--Document-->
+<div>
+
+    <script type="text/x-kendo-tmpl" id="shipmentDocs">
+
+        <div>
+            <style>
+
+                .borderless td, .borderless th,.borderless tr {
+                    border: none;
+                }
+
+                .table {
+                    border: 0.5px solid black;
+                }
+
+                    .table thead th {
+                        border-top: 0.5px solid \\#000 !important;
+                        border-bottom: 0.5px solid \\#000 !important;
+                    }
+            </style>
+
+
+            <div class="container form shipmentDocs">
+                <div class="title">Remark of Documents</div>
+                <div class="row">
+                    <div class="card-body" id="DocsRemarkDocuments">
+                        <table class="table borderless">
+                            #  for (var i = 0; i < data.RemarkDocuments.length; i++) {#
+                            <tr>
+                                <td style="width: 10%"><span>NO #=i+1#</span></td>
+                                <td style="width: 90%">
+                                    <input type="text" class="remarkDocuments" docId="#=data.RemarkDocuments[i].Id#" docSerial="#=data.RemarkDocuments[i].DocOrderSerial#" style="width: 100%" value="#=data.RemarkDocuments[i].DocumentName#">
+                                </td>
+                            </tr>
+                            # } #
+                        </table>
+                    </div>
+                </div>
+
+                <div class="title">Receipts of Documents</div>
+                <div class="row">
+                    <div class="card-body">
+                        <table class="table table-borderless">
+                            <thead>
+                                <tr>
+                                    <th rowspan="2">NO</th>
+                                    <th rowspan="2">DOC NAME</th>
+                                    <th colspan="2" style="border-top: none !important; border-bottom: none !important; text-align: center">CONSIGNEE</th>
+                                    <th colspan="2" style="border-top: none !important; border-bottom: none !important; text-align: center">VESSEL</th>
+                                    <th colspan="2" style="border-top: none !important; border-bottom: none !important; text-align: center">PRINCIPAL</th>
+                                    <th rowspan="2"></th>
+                                </tr>
+                                <tr>
+                                    <th style="border-top: none !important;">ORIGS</th>
+                                    <th style="border-top: none !important;">COPIES</th>
+                                    <th style="border-top: none !important;">ORIGS</th>
+                                    <th style="border-top: none !important;">COPIES</th>
+                                    <th style="border-top: none !important;">ORIGS</th>
+                                    <th style="border-top: none !important;">COPIES</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                #  for (var i = 0; i < data.ReceiptDocuments.length; i++) {#
+                                <tr>
+                                    <td><span>#=i+1#</span></td>
+                                    <td>
+                                        <span class="text">#=data.ReceiptDocuments[i].DocumentName#</span>
+                                    </td>
+                                    <td>
+                                        <span class="text">#=data.ReceiptDocuments[i].ConsigneeCOOrgis#</span>
+                                    </td>
+                                    <td>
+                                        <input type="text" style="width: 60px" class="receiptDocumentConsigneeCOCopies" docSerial="#=data.ReceiptDocuments[i].DocOrderSerial#" value="#=data.ReceiptDocuments[i].ConsigneeCOCopies#">
+                                    </td>
+                                    <td>
+                                        <span class="text">#=data.ReceiptDocuments[i].VesselMasterOrgis#</span>
+                                    </td>
+                                    <td>
+                                        <input type="text" style="width: 60px" class="receiptDocumentVesselMasterCopies" docSerial="#=data.ReceiptDocuments[i].DocOrderSerial#" value="#=data.ReceiptDocuments[i].VesselMasterCopies#">
+                                    </td>                                    
+                                    <td>
+                                        <input type="text" style="width: 60px" class="receiptDocumentPrincipalOrgis" docSerial="#=data.ReceiptDocuments[i].DocOrderSerial#" value="#=data.ReceiptDocuments[i].PrincipalOrgis#">
+                                    </td>
+                                    <td>
+                                        <input type="text" style="width: 60px" class="receiptDocumentPrincipalCopies" docSerial="#=data.ReceiptDocuments[i].DocOrderSerial#" value="#=data.ReceiptDocuments[i].PrincipalCopies#">
+                                    </td>
+
+                                    <td>
+                                        <button type="button" class="btn btn-link"  data-bind="events:{click:onReceiptDocumentsExport}" data-parameter="#=data.ReceiptDocuments[i].DocumentName#">EXPORT</button>
+                                        <button type="button" class="btn btn-link"  data-bind="events:{click:onReceiptDocumentsPrint}"  data-parameter="#=data.ReceiptDocuments[i].DocumentName#">PRINT</button>
+                                    </td>
+                                </tr>
+                                # } #
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <div style="width: 96%; margin-left: 2%;">
+
+            </div>
+        </div>
+
+    </script>
+</div>
+
+<!--Order and its Main/Sub Operation-->
+<div>
+    <div id="shipmentOrders">
+
+        <style>
+
+            .shipmentOrders span.block {
+                border: 1px solid #cccccc;
+            }
+        </style>
+
+        <div class="container shipmentOrders">
+            <div class="title">BOL Cutting</div>
+            <div class="row">
+                <div class="col-12 t-col12">
+                    <div class="t-fieldlist">
+                    </div>
+                    <div class="t-fieldlist">
+                        <div class="grid" data-role="grid"
+                             data-editable="false"
+                             data-columns="[
+                                                        { 'field': 'CustomerOrderNo',title:'ORDER NO', 'width': '170px' ,'editable': false },
+                                                        { 'field': 'TankCode',title:'TANK No','width': '170px' ,'editable': false },
+                                                        { 'field': 'ProductName',title:'PRODUCT NAME','width': '220px' },
+                                                        { 'field': 'QtyTarget',title:'TARGET QTY','editable': false },
+                                                        { 'field': 'QtyActual',title:'ACTUAL QTY',type:'boolean','editable': false },
+                                                        { 'field': 'UOMName',title:'UOM' },
+                                         ]"
+                             data-bind="source: data.CuttingPlanList"
+                             style="height: 200px;width:95%"></div>
+                    </div>
+                    <div class="t-fieldlist">
+                    </div>
+                </div>
+            </div>
+
+            <div class="title">Main Operations</div>
+            <div class="row">
+                <div class="col-12 t-col12">
+                    <div class="t-fieldlist">
+                    </div>
+                    <div class="t-fieldlist">
+                        <div class="grid" data-role="grid"
+                             data-editable="false"
+                             data-columns="[
+                                                        { 'field': 'OrderNo',title:'ORDER NO', 'width': '170px' ,'editable': false },
+                                                        { 'field': 'Source',title:'SOURCE','editable': false, 'hidden':true },
+                                                        { 'field': 'Destination',title:'DEST', 'hidden':true },
+                                                        { 'field': 'ProductName',title:'PRODUCT','editable': false },
+                                                        { 'field': 'QtyTarget',title:'NOMIN' },
+                                                        { 'field': 'QtyActual',title:'ACTUAL' },
+                                                        { 'field': 'UoMName',title:'UOM' },
+                                                        { 'field': 'StatusName',title:'STATUS' },
+                                         ]"
+                             data-bind="source: data.MainOperation"
+                             style="height: 200px;width:95%"></div>
+                    </div>
+                    <div class="t-fieldlist">
+                    </div>
+                </div>
+            </div>
+
+            <div class="title">Sub Operations</div>
+            <div class="row">
+                <div class="col-12 t-col12">
+                    <div class="t-fieldlist">
+                    </div>
+                    <div class="t-fieldlist">
+                        <div class="grid" data-role="grid"
+                             data-editable="false"
+                             data-columns="[
+                                                        { 'field': 'SubOperationNo',title:'ORDER NO', 'width': '170px' ,'editable': false },
+                                                        { 'field': 'Source',title:'SOURCE' },
+                                                        { 'field': 'Destination',title:'DESTINATION' },
+                                                        { 'field': 'SubOperationTypeDescription',title:'Type','editable': false },
+                                                        { 'field': 'CommodityName',title:'PRODUCT','editable': false,'hidden':true },
+                                                        { 'field': 'OrderQuantity',title:'TRANSFER QTY',type:'boolean','editable': false,'hidden':true },
+                                                        { 'field': 'UoMName',title:'UOM', 'hidden':true },
+                                                        { 'field': 'StatusName',title:'STATUS' },
+                                         ]"
+                             data-bind="source: data.SubOperation"
+                             style="height: 200px;width:95%"></div>
+                    </div>
+                    <div class="t-fieldlist">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="width: 96%; margin-left: 2%;">
+
+        </div>
+    </div>
+</div>
+
+<div>
+    <div id="shipmentDocExport">
+        <button class="k-button" style="margin-top:10px" data-bind='events:{click: onExport}'>Download</button>
+        <div class='grid' style="margin-top:10px"></div>      
+   </div>
+</div>

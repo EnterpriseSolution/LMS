@@ -1,0 +1,955 @@
+<!--JettyForm-->
+<div>
+    <div id="JettyForm">
+        <div class="form" style="width:100%">
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        Jetty No
+                        <span class="required">*</span>
+                        <input type="text" name="Jetty No" data-bind="value:data.JettyNo" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        Commission Date
+                        <span class="required">*</span>
+                        <input data-role="datetimepicker" name="CommissionDate" data-bind="enabled: true,value: data.CommissionDate" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        LOA
+                        <span class="required">*</span>
+                        <input name="LOA" data-role="numerictextbox" data-min="0" data-bind="value:data.LOA" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        Displacement
+                        <input data-role="numerictextbox" data-min="0" data-bind="value: data.Displacement">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        MAX Draft
+                        <input data-role="numerictextbox" data-min="0" data-bind="value:data.MaxDraft">
+                    </div>
+                    <div class="t-fieldlist">
+                        Manifold Height
+                        <input data-role="numerictextbox" data-min="0" data-bind="value: data.ManifoldHeight">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist" style="width:94%">
+                        Remark
+                        <textarea data-role="textarea"
+                                  data-min-length="0"
+                                  data-max-length="500"
+                                  data-rows="8" placeholder="Enter your remark here" data-bind="value:data.Remarks" style="height:80px"></textarea>
+                        <div class="k-counter-container"><span class="k-counter-value">0</span>/500</div>
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--AgentForm-->
+<div>
+    <div id="AgentForm">
+        <div class="form" style="width:100%">
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist" style='width:120px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;'>
+                        Address
+                        <span class="required">*</span>
+                        <input type="text" name="Address" data-bind="value:data.Address" class="k-textbox" required="" validationmessage="{0} is required" />
+                    </div>
+                    <div class="t-fieldlist">
+                        AgentCode
+                        <span class="required">*</span>
+                        <input type="text" name="AgentCode" data-bind="value:data.AgentCode" class="k-textbox" required="" validationmessage="{0} is required" />
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        AgentCRNo
+                        <span class="required">*</span>
+                        <input type="text" name="AgentCRNo" data-bind="value:data.AgentCRNo" class="k-textbox" required="" validationmessage="{0} is required" />
+                    </div>
+                    <div class="t-fieldlist">
+                        AgentName
+                        <span class="required">*</span>
+                        <input type="text" name="AgentName" data-bind="value:data.AgentName" class="k-textbox" required="" validationmessage="{0} is required" />
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        BillingAddress
+                        <span class="required">*</span>
+                        <input type="text" name="BillingAddress" data-bind="value:data.BillingAddress" class="k-textbox" required="" validationmessage="{0} is required" />
+                    </div>
+                    <div class="t-fieldlist">
+                        BillingCountry
+                        <span class="required">*</span>
+                        <input type="text" name="BillingCountry" data-bind="value:data.BillingCountry" class="k-textbox" required="" validationmessage="{0} is required" />
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        BillTelephone
+                        <span class="required">*</span>
+                        <input type="text" name="BillTelephone" data-bind="value:data.BillTelephone" class="k-textbox" required="" validationmessage="{0} is required" />
+                    </div>
+                    <div class="t-fieldlist">
+                        Country
+                        <span class="required">*</span>
+                        <input type="text" name="Country" data-bind="value:data.Country" class="k-textbox" required="" validationmessage="{0} is required" />
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        Mobile
+                        <span class="required">*</span>
+                        <input type="text" name="Mobile" data-bind="value:data.Mobile" class="k-textbox" required="" validationmessage="{0} is required" />
+                    </div>
+                    <div class="t-fieldlist">
+                        PersonInCharge
+                        <span class="required">*</span>
+                        <input type="text" name="PersonInCharge" data-bind="value:data.PersonInCharge" class="k-textbox" required="" validationmessage="{0} is required" />
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        PhoneO
+                        <span class="required">*</span>
+                        <input type="text" name="PhoneO" data-bind="value:data.PhoneO" class="k-textbox" required="" validationmessage="{0} is required" />
+                    </div>
+                    <div class="t-fieldlist">
+                        Remarks
+                        <span class="required">*</span>
+                        <input type="text" name="Remarks" data-bind="value:data.Remarks" class="k-textbox" required="" validationmessage="{0} is required" />
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        Status
+                        <span class="required">*</span>
+                        <input type="text" name="Status" data-bind="value:data.Status" class="k-textbox" required="" validationmessage="{0} is required" />
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--CarrierForm-->
+<div>
+    <div id="CarrierForm">
+        <div class="form" style="width:100%">
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        Address
+                        <span class="required">*</span>
+                        <input type="text" name="Address" data-bind="value:data.Address" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        CarrierCode
+                        <span class="required">*</span>
+                        <input type="text" name="CarrierCode" data-bind="value:data.CarrierCode" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        CarrierName
+                        <span class="required">*</span>
+                        <input type="text" name="CarrierName" data-bind="value:data.CarrierName" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        Remarks
+                        <span class="required">*</span>
+                        <input type="text" name="Remarks" data-bind="value:data.Remarks" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        Status
+                        <span class="required">*</span>
+                        <input type="text" name="Status" data-bind="value:data.Status" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        ValidDate
+                        <span class="required">*</span>
+                        <input data-role="datetimepicker" name="ValidDate" data-bind="enabled: true,value: data.ValidDate" required validationMessage="{0} is required">   </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--CompartmentForm-->
+<div>
+    <div id="CompartmentForm">
+        <div class="form" style="width:100%">
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        Capacity
+                        <span class="required">*</span>
+                        <input type="text" name="Capacity" data-bind="value:data.Capacity" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        CompartmentNo
+                        <span class="required">*</span>
+                        <input type="text" name="CompartmentNo" data-bind="value:data.CompartmentNo" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        ProductName:
+                        <span class="required">*</span>
+                        <select id="ProductList" name="ProductName"  data-role="combobox" data-filter="contains"  data-autoBind="true" data-value-primitive="true" data-text-field="ProductName" data-value-field="ProductId" data-bind="value:data.St_ProductId, source: data.Products,invisible: true" required validationMessage="{0} is required" />
+                    </div>
+                    <div class="t-fieldlist">
+                        Remarks
+                        <span class="required">*</span>
+                        <input type="text" name="Remarks" data-bind="value:data.Remarks" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--CustomerForm-->
+<div>
+    <div id="CustomerForm">
+        <div class="form" style="width:100%">
+
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        Address
+                        <span class="required">*</span>
+                        <input type="text" name="Address" data-bind="value:data.Address" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        BillingAddress
+                        <span class="required">*</span>
+                        <input type="text" name="BillingAddress" data-bind="value:data.BillingAddress" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        BillingCountry
+                        <span class="required">*</span>
+                        <input type="text" name="BillingCountry" data-bind="value:data.BillingCountry" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        BillTelephone
+                        <span class="required">*</span>
+                        <input type="text" name="BillTelephone" data-bind="value:data.BillTelephone" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        Country
+                        <span class="required">*</span>
+                        <input type="text" name="Country" data-bind="value:data.Country" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        CustomerAlias
+                        <span class="required">*</span>
+                        <input type="text" name="CustomerAlias" data-bind="value:data.CustomerAlias" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        CustomerName
+                        <span class="required">*</span>
+                        <input type="text" name="CustomerName" data-bind="value:data.CustomerName" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                   
+                    <div class="t-fieldlist">
+                        CustomerCRNo
+                        <span class="required">*</span>
+                        <input type="text" name="CustomerCRNo" data-bind="value:data.CustomerCRNo" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        Fax
+                        <span class="required">*</span>
+                        <input type="text" name="Fax" data-bind="value:data.Fax" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        Mobile
+                        <span class="required">*</span>
+                        <input type="text" name="Mobile" data-bind="value:data.Mobile" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        PersonInCharge
+                        <span class="required">*</span>
+                        <input type="text" name="PersonInCharge" data-bind="value:data.PersonInCharge" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        PhoneO
+                        <span class="required">*</span>
+                        <input type="text" name="PhoneO" data-bind="value:data.PhoneO" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        PhoneR
+                        <span class="required">*</span>
+                        <input type="text" name="PhoneR" data-bind="value:data.PhoneR" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        Remarks
+                        <span class="required">*</span>
+                        <input type="text" name="Remarks" data-bind="value:data.Remarks" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        Status
+                        <span class="required">*</span>
+                        <input type="text" name="Status" data-bind="value:data.Status" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        CustomerCode
+                        <span class="required">*</span>
+                        <input type="text" name="CustomerCode" data-bind="value:data.CustomerCode" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--DriverForm-->
+<div>
+    <div id="DriverForm">
+        <div class="form" style="width:100%">
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        Age
+                        <span class="required">*</span>
+                        <input type="text" name="Age" data-bind="value:data.Age" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        CardId
+                       <select name="CardId" data-role="combobox" data-value-primitive="true" data-filter="contains"  data-autoBind="true"  data-text-field="CardNo" data-value-field="CardId" data-bind="value:data.St_CardId, source: data.Cards,invisible: true" />
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        CarrierId
+                       <select name="CarrierId" data-role="combobox" data-value-primitive="true" data-filter="contains"  data-autoBind="true" data-text-field="CarrierName" data-value-field="CarrierId" data-bind="value:data.St_CarrierId, source: data.Carriers,invisible: true"  />
+                    </div>
+                    <div class="t-fieldlist">
+                        DriverCode
+                        <span class="required">*</span>
+                        <input type="text" name="DriverCode"  data-bind="value:data.DriverCode" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        DriverGrade
+                        <span class="required">*</span>
+                        <input type="text" name="DriverGrade" data-bind="value:data.DriverGrade" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        DriverName
+                        <span class="required">*</span>
+                        <input type="text" name="DriverName" data-bind="value:data.DriverName" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        Gender
+                        <span class="required">*</span>
+                        <input type="text" name="Gender" data-bind="value:data.Gender" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        License
+                        <span class="required">*</span>
+                        <input type="text" name="License" data-bind="value:data.License" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        PIN
+                        <span class="required">*</span>
+                        <input type="text" name="PIN" data-bind="value:data.PIN" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        Remarks
+                        <span class="required">*</span>
+                        <input type="text" name="Remarks" data-bind="value:data.Remarks" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        ReTrainingDate
+                        <span class="required">*</span>
+                        <input data-role="datetimepicker" name="ReTrainingDate" data-bind="enabled: true,value: data.ReTrainingDate" required validationMessage="{0} is required">   
+                    </div>
+                    <div class="t-fieldlist">
+                        Status
+                        <span class="required">*</span>
+                        <input type="text" name="Status" data-bind="value:data.Status" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        ValidDate
+                        <span class="required">*</span>
+                        <input data-role="datetimepicker" name="ValidDate" data-bind="enabled: true,value: data.ValidDate" required validationMessage="{0} is required">
+                   </div>
+                    <div class="t-fieldlist">
+                        YearsExperience
+                        <span class="required">*</span>
+                        <input type="text" name="YearsExperience" data-bind="value:data.YearsExperience" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<!--ProductForm-->
+<div>
+    <div id="ProductForm">
+        <div class="form" style="width:100%">
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        AvgRefDensity
+                        <span class="required">*</span>
+                        <input type="text" name="AvgRefDensity" data-bind="value:data.AvgRefDensity" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        AvgVCF
+                        <span class="required">*</span>
+                        <input type="text" name="AvgVCF" data-bind="value:data.AvgVCF" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        HSCode
+                        <span class="required">*</span>
+                        <input type="text" name="HSCode" data-bind="value:data.HSCode" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        ProductGroup
+                        <span class="required">*</span>
+                        <input type="text" name="ProductGroup" data-bind="value:data.ProductGroup" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        ProductName
+                        <span class="required">*</span>
+                        <input type="text" name="ProductName" data-bind="value:data.ProductName" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        Remarks
+                        <span class="required">*</span>
+                        <input type="text" name="Remarks" data-bind="value:data.Remarks" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        Status
+                        <span class="required">*</span>
+                        <input type="text" name="Status" data-bind="value:data.Status" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--TankForm-->
+<div>
+    <div id="TankForm">
+        <div class="form" style="width:100%">
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        Tank No.
+                        <span class="required">*</span>
+                        <input type="text" name="TankNo" data-bind="value:data.TankNo,enabled:data.AllowEdit" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        Tank Type                        
+                        <select name="TankType"  style="width:100%"  required validationMessage="{0} is required" data-role="dropdownlist" data-auto-bind="false" data-value-primitive="true" data-text-field="text" data-value-field="value" data-bind="value:data.TankType,source:data.TankTypeList"></select>
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        Product
+                        <span class="required">*</span>                        
+                        <select name="Product"  style="width:100%" required validationMessage="{0} is required" data-role="combobox" data-auto-bind="false" data-value-primitive="true" data-text-field="text" data-value-field="value" data-bind="value:data.ProductId,source:data.ProductList"></select>
+                    </div>
+                    <div class="t-fieldlist">
+                        Status
+                        <select name="Status"  style="width:100%"  data-role="dropdownlist" data-auto-bind="false" data-value-primitive="true" data-text-field="text" data-value-field="value" data-bind="value:data.Status,source:data.TankStatusList"></select>
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        Max Safe Level
+                        <input type="text" name="MaxSafeLevel" data-bind="value:data.MaxSafeLevel" data-role="numerictextbox">
+                    </div>
+                    <div class="t-fieldlist">
+                        Max Operation Volume
+                        <input type="text" name="MaxOperationVolume" data-bind="value:data.MaxOperationVolume" data-role="numerictextbox">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        Critical Zone From
+                        <input type="text" name="CriticalZoneFrom" data-bind="value:data.CriticalZoneFrom" class="k-textbox">
+                    </div>
+                    <div class="t-fieldlist">
+                        Critical Zone To
+                        <input type="text" name="CriticalZoneTo" data-bind="value:data.CriticalZoneTo" class="k-textbox">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist" style="width:94%;height:60px">
+                        Remarks                        
+                        <textarea name="remark" data-bind="value:data.Remarks" data-role="textarea"
+                                  data-resizable="none"
+                                  data-max-length="500"
+                                  data-rows="5" placeholder="Enter your remark here"></textarea>
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--TruckForm-->
+<div>
+    <div id="TruckForm" data-role="form">
+        <div class="form" style="width:100%">
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        YearBuilt
+                        <span class="required">*</span>
+                        <input data-role="datepicker" name="YearBuilt" data-bind="enabled: true,value: data.YearBuilt " required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        InspectionDueDate
+                        <span class="required">*</span>
+                        <input data-role="datetimepicker" name="InspectionDueDate" data-bind="enabled: true,value: data.InspectionDueDate" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        LastInspectionDate
+                        <span class="required">*</span>
+                        <input data-role="datetimepicker" name="LastInspectionDate" data-bind="enabled: isEnabled,value: data.LastInspectionDate" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        Maker
+                        <span class="required">*</span>
+                        <input type="text" name="Maker" data-bind="value:data.Maker" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        RegisteredGrossWeight
+                        <span class="required">*</span>
+                        <input type="text" name="RegisteredGrossWeight" data-bind="value:data.RegisteredGrossWeight" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        RegisteredTareWeight
+                        <span class="required">*</span>
+                        <input type="text" name="RegisteredTareWeight" data-bind="value:data.RegisteredTareWeight" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        Remarks
+                        <span class="required">*</span>
+                        <input type="text" name="Remarks" data-bind="value:data.Remarks" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        Status
+                        <span class="required">*</span>
+                        <input type="text" name="Status" data-bind="value:data.Status" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        TruckCode
+                        <span class="required">*</span>
+                        <input type="text" name="TruckCode" data-bind="value:data.TruckCode" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        ValidDate
+                        <span class="required">*</span>
+                        <input data-role="datetimepicker" name="ValidDate" data-bind="enabled: true,value: data.ValidDate" required validationMessage="{0} is required">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        Carrier
+                        <select name="Carrier" data-role="combobox" data-filter="contains" data-autoBind="true" data-value-primitive="true" data-text-field="CarrierName" data-value-field="CarrierId" data-bind="value:data.St_CarrierId, source: data.Carriers,invisible: true" />
+
+                    </div>
+
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+
+        </div>
+        <div style="text-align:center">
+            <button data-role="button" id="AddCompartment" data-icon="add"
+                    style="margin-right: 5px; margin-left: 5px; width: 218px; height: 40px; margin-bottom: 6px;">
+                Add Compartment
+            </button>
+
+        </div>
+
+        <ul class="tm-listview" id="CompartmentList" data-role="grid" data-editable="true" data-bind="source: data.Compartments"
+            data-columns="[
+            { 'field' : 'CompartmentNo' },
+            { 'field' : 'ProductName' },
+            { 'field' : 'Capacity' },
+            { 'field' : 'Remarks' },
+            { 'field' : 'CompartmentId' ,'hidden': 'hidden' },
+             {'command':'destroy'}
+            ]"></ul>
+
+    </div>
+</div>
+
+<!--RFIDCardForm-->
+<div>
+    <div id="RFIDCardForm">
+        <div class="form" style="width:100%">
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        Card No
+                        <span class="required">*</span>
+                        <input type="text" name="CardNo" data-bind="value:data.CardNo,enabled:data.AllowEdit" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        Card Type                        
+                        <select name="CardType" style="width:100%" required validationMessage="{0} is required" data-role="dropdownlist" data-auto-bind="false" data-value-primitive="true" data-text-field="text" data-value-field="value" data-bind="value:data.CardType,source:data.CardTypeList"></select>
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        Valid Date                        
+                        <input data-role="datepicker" name="ValidDate" data-bind="value:data.ValidDate">
+                    </div>
+                    <div class="t-fieldlist">
+                        Status                        
+                        <select name="Status" style="width:100%" data-role="dropdownlist" data-auto-bind="false" data-value-primitive="true" data-text-field="text" data-value-field="value" data-bind="value:data.Status,source:data.CardStatusList"></select>
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">              
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist" style="width:94%;height:60px">
+                        Remarks
+                        <textarea name="remark" data-bind="value:data.Remarks" data-role="textarea"
+                                  data-resizable="none"
+                                  data-max-length="500"
+                                  data-rows="5" placeholder="Enter your remark here"></textarea>
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--VesselForm-->
+<div>
+    <div id="VesselForm">
+        <div class="form" style="width:100%">
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        Vessel Name
+                        <span class="required">*</span>
+                        <input type="text" name="VesselName" data-bind="value:data.VesselName,enabled:data.AllowEdit" class="k-textbox" required validationMessage="{0} is required">
+                    </div>
+                    <div class="t-fieldlist">
+                        Vessel Flag
+                        <input type="text" name="VesselFlag" data-bind="value:data.VesselFlag" class="k-textbox">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        Max Loadable Weight
+                        <input data-role="numerictextbox" name="MaxLoadableWeight" data-bind="value:data.MaxLoadableWeight">
+                    </div>
+                    <div class="t-fieldlist">
+                        Max Loadable Volume
+                        <input data-role="numerictextbox" name="MaxLoadableVolume" data-bind="value:data.MaxLoadableVolume">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        Length
+                        <input data-role="numerictextbox" name="VesselLength" data-bind="value:data.VesselLength">
+                    </div>
+                    <div class="t-fieldlist">
+                        DWT
+                        <input data-role="numerictextbox" name="DWT" data-bind="value:data.DWT">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        Displacement
+                        <input data-role="numerictextbox" name="Displacement" data-bind="value:data.Displacement">
+                    </div>
+                    <div class="t-fieldlist">
+                        Draught
+                        <input data-role="numerictextbox" name="Draught" data-bind="value:data.Draught">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        Total Cubic Capacity Of Tank
+                        <input data-role="numerictextbox" name="TotalCubicCapacityOfTank" data-bind="value:data.TotalCubicCapacityOfTank">
+                    </div>
+                    <div class="t-fieldlist">
+                        Slop Tank Capacity
+                        <input data-role="numerictextbox" name="SlopTankCapacity" data-bind="value:data.SlopTankCapacity">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist">
+                        Port Of Registry                        
+                        <input type="text" name="PortOfRegistry" data-bind="value:data.PortOfRegistry" class="k-textbox" >
+                    </div>
+                    <div class="t-fieldlist">
+                        Classification Society
+                        <input type="text" name="ClassificationSociety" data-bind="value:data.ClassificationSociety" class="k-textbox">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>              
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist" style="width:94%;height:60px">
+                        Remarks
+                        <textarea name="remark" data-bind="value:data.Remarks" data-role="textarea"
+                                  data-resizable="none"
+                                  data-max-length="500"
+                                  data-rows="5" placeholder="Enter your remark here"></textarea>
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+        </div>
+    </div>
+</div>

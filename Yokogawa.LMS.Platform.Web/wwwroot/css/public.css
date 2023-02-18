@@ -1,0 +1,195 @@
+.nav {
+  height: 80px;
+  background-color: #0866c6;
+  color: white;
+}
+.nav h1 {
+  width: 300px;
+  line-height: 80px;
+  text-align: center;
+  position: relative;
+  float: left;
+  cursor: pointer;
+}
+.nav h1:hover {
+  background-color: #0077d0;
+}
+.nav h1 .sj-b {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border-width: 12px;
+  border-color: #ffffff transparent transparent transparent;
+  border-style: solid dashed dashed dashed;
+  position: absolute;
+  right: 12px;
+  bottom: 0;
+}
+.nav h1 .sj-t {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border-width: 12px;
+  border-color: transparent transparent #ffffff transparent;
+  border-style: dashed dashed solid dashed;
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+}
+.nav h2 {
+  float: left;
+  margin-left: 50px;
+  line-height: 80px;
+}
+.nav h2 .home {
+  display: inline-block;
+  width: 36px;
+  height: 31px;
+  background: url(../img/icon.png) no-repeat 0 0;
+  vertical-align: middle;
+  margin-right: 30px;
+}
+.nav .user {
+  margin-top: 30px;
+  padding-left: 30px;
+  position: absolute;
+  right: 40px;
+  line-height: 2.5;
+}
+.nav .user li {
+  display: none;
+  padding: 0 10px;
+  cursor: pointer;
+  background-color: #0866c6;
+}
+.nav .user li a {
+  display: block;
+  color: white;
+}
+.nav .user li:hover {
+  background-color: #0077d0;
+}
+.nav .user li:first-child {
+  display: block;
+}
+.nav .user .sj-b {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border-width: 8px;
+  border-color: #ffffff transparent transparent transparent;
+  border-style: solid dashed dashed dashed;
+  position: absolute;
+  top: 14px;
+  left: 0;
+}
+.nav .user .sj-t {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border-width: 8px;
+  border-color: transparent transparent #ffffff transparent;
+  border-style: dashed dashed solid dashed;
+  position: absolute;
+  top: 8px;
+  left: 0;
+}
+.menu {
+  display: none;
+  height: 90px;
+  background-color: #dfe2e8;
+  box-shadow: -4px 4px 4px #aaaaaa;
+}
+.menu li a {
+  float: left;
+  width: 186px;
+  height: 70px;
+  background-color: #0866c6;
+  color: white;
+  text-align: center;
+  margin: 10px 14px 0 0;
+}
+.menu li a:hover {
+  background-color: #0077d0;
+}
+.menu li a i {
+  display: block;
+  height: 16px;
+  margin: 16px auto 6px;
+}
+.menu li a .icon-data {
+  width: 21px;
+  background: url(../img/icon.png) no-repeat -266px 0;
+}
+.menu li a .icon-doc {
+  width: 16px;
+  background: url(../img/icon.png) no-repeat -288px 0;
+}
+.menu li a .icon-risk {
+  width: 16px;
+  background: url(../img/icon.png) no-repeat -305px 0;
+}
+.menu li a .icon-report {
+  width: 12px;
+  background: url(../img/icon.png) no-repeat -322px 0;
+}
+.menu li a .icon-status {
+  width: 24px;
+  background: url(../img/icon.png) no-repeat -334px 0;
+}
+.menu li a .icon-setting {
+  width: 16px;
+  background: url(../img/icon.png) no-repeat -357px 0;
+}
+
+.menu li a .icon-checklist {
+  width: 16px;
+  background: url(../img/icon_c16_checklists.png) no-repeat;
+}
+
+.menu li a .icon-revision {
+  width: 16px;
+  background: url(../img/icon_c16_routingt.png) no-repeat;
+}
+
+.menu li a .icon-docnorule {
+  width: 16px;
+  background: url(../img/icon_c16_rules.png) no-repeat;
+}
+
+.menu li a .icon-taxonomy {
+  width: 16px;
+  background: url(../img/icon_c16_taxonomy.png) no-repeat;
+}
+
+.menu li a .icon-template {
+  width: 16px;
+  background: url(../img/icon_c16_template.png) no-repeat;
+}
+
+.menu li a .icon-master {
+  width: 18px;
+  height:18px;
+  background: url(../img/icon_c18_master.png) no-repeat;
+}
+
+.pages {
+  border: 1px solid #cccccc;
+
+}
+.pages > div {
+  margin: 0 20px;
+}
+.pages > div h6 {
+  font-size: 16px;
+  margin: 20px 0 8px;
+}
+
+@media (min-width: 768px) {
+div.d-md-block {
+    display: block !important;
+  }
+}
+
+
+

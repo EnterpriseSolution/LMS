@@ -1,0 +1,20 @@
+{
+  "APIs":[
+    {
+      "Name": "Account/user",
+      "Description": "Retrieve user account"
+    }
+  ],
+  "UIs":[
+    {
+      "Name": "VesselOrder_VesselSchehduleHistoryList",
+      "Description": "Vessel Schedule History Page",
+      "Resources": [
+        {
+          "Name": "btn_01",
+          "Description": "View Details"
+        }
+      ]
+    }
+  ]
+}

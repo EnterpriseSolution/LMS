@@ -1,0 +1,176 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yokogawa.Data.Infrastructure", "Yokogawa.Data.Infrastructure\Yokogawa.Data.Infrastructure.csproj", "{3C51CDCF-3827-4ACD-85E1-4627F4D1AFB8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yokogawa.LMS.Platform.Data", "Yokogawa.LMS.Platform.Data\Yokogawa.LMS.Platform.Data.csproj", "{67751409-2AAB-494B-AD68-3C4B4082997D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yokogawa.LMS.Platform.Core", "Yokogawa.LMS.Platform.Core\Yokogawa.LMS.Platform.Core.csproj", "{61092692-A23E-4E8B-A3B0-7B9A537FA821}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yokogawa.LMS.Exceptions", "Yokogawa.LMS.Exceptions\Yokogawa.LMS.Exceptions.csproj", "{EDF52E6E-5736-499A-872D-0C8C26D6D2D0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yokogawa.LMS.Platform.Web", "Yokogawa.LMS.Platform.Web\Yokogawa.LMS.Platform.Web.csproj", "{1D752043-47AC-49AB-8BF6-14EBD57DA51F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yokogawa.Security.OAuth", "Yokogawa.Security.OAuth\Yokogawa.Security.OAuth.csproj", "{DC6C2E7F-C047-4D1B-8B4D-A07B55C55F37}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yokogawa.OAuth", "Yokogawa.OAuth\Yokogawa.OAuth.csproj", "{68641EA6-F8EC-459A-86CB-F49A67C4A20F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yokogawa.Security.OAuth.Interfaces", "Yokogawa.Security.OAuth.Interfaces\Yokogawa.Security.OAuth.Interfaces.csproj", "{AF096091-A805-4A84-9984-9ACFE6F02386}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yokogawa.LMS.Platform.Authentication", "Yokogawa.LMS.Platform.Authentication\Yokogawa.LMS.Platform.Authentication.csproj", "{5A5F7783-51A0-45D7-BBE6-E9AA45305C66}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yokogawa.LMS.Business.Data", "Yokogawa.LMS.Business.Data\Yokogawa.LMS.Business.Data.csproj", "{F41CFB68-F075-48AF-BCCA-D1CEFFD56308}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yokogawa.LMS.Business.Service", "Yokogawa.LMS.Business.Service\Yokogawa.LMS.Business.Service.csproj", "{B8A961EE-CD99-452F-837F-AE75A197CEBC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yokogawa.LMS.Business.WebAPI", "Yokogawa.LMS.Business.WebAPI\Yokogawa.LMS.Business.WebAPI.csproj", "{E08E97D2-261F-40BE-8BA2-02BEF87EA87B}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Yokogawa.LMS.WebpackTemplate", "Yokogawa.LMS.WebpackTemplate", "{DE761323-5B26-4CD5-9299-6F7B3A2C94D0}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "SAK"
+		SccAuxPath = "SAK"
+		SccLocalPath = "SAK"
+		SccProvider = "SAK"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_11768"
+		Debug.AspNetCompiler.PhysicalPath = "Yokogawa.LMS.WebpackTemplate\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_11768\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_11768"
+		Release.AspNetCompiler.PhysicalPath = "Yokogawa.LMS.WebpackTemplate\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_11768\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "11768"
+		SlnRelativePath = "Yokogawa.LMS.WebpackTemplate\"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yokogawa.LMS.Business.Service.UnitTest", "Yokogawa.LMS.Business.Service.UnitTest\Yokogawa.LMS.Business.Service.UnitTest.csproj", "{64093064-7E01-478E-9090-944977AABF6A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C51CDCF-3827-4ACD-85E1-4627F4D1AFB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C51CDCF-3827-4ACD-85E1-4627F4D1AFB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C51CDCF-3827-4ACD-85E1-4627F4D1AFB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C51CDCF-3827-4ACD-85E1-4627F4D1AFB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67751409-2AAB-494B-AD68-3C4B4082997D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67751409-2AAB-494B-AD68-3C4B4082997D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67751409-2AAB-494B-AD68-3C4B4082997D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67751409-2AAB-494B-AD68-3C4B4082997D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61092692-A23E-4E8B-A3B0-7B9A537FA821}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61092692-A23E-4E8B-A3B0-7B9A537FA821}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61092692-A23E-4E8B-A3B0-7B9A537FA821}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61092692-A23E-4E8B-A3B0-7B9A537FA821}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDF52E6E-5736-499A-872D-0C8C26D6D2D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDF52E6E-5736-499A-872D-0C8C26D6D2D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDF52E6E-5736-499A-872D-0C8C26D6D2D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDF52E6E-5736-499A-872D-0C8C26D6D2D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D752043-47AC-49AB-8BF6-14EBD57DA51F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D752043-47AC-49AB-8BF6-14EBD57DA51F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D752043-47AC-49AB-8BF6-14EBD57DA51F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D752043-47AC-49AB-8BF6-14EBD57DA51F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC6C2E7F-C047-4D1B-8B4D-A07B55C55F37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC6C2E7F-C047-4D1B-8B4D-A07B55C55F37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC6C2E7F-C047-4D1B-8B4D-A07B55C55F37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC6C2E7F-C047-4D1B-8B4D-A07B55C55F37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68641EA6-F8EC-459A-86CB-F49A67C4A20F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68641EA6-F8EC-459A-86CB-F49A67C4A20F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68641EA6-F8EC-459A-86CB-F49A67C4A20F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68641EA6-F8EC-459A-86CB-F49A67C4A20F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF096091-A805-4A84-9984-9ACFE6F02386}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF096091-A805-4A84-9984-9ACFE6F02386}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF096091-A805-4A84-9984-9ACFE6F02386}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF096091-A805-4A84-9984-9ACFE6F02386}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A5F7783-51A0-45D7-BBE6-E9AA45305C66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A5F7783-51A0-45D7-BBE6-E9AA45305C66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A5F7783-51A0-45D7-BBE6-E9AA45305C66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A5F7783-51A0-45D7-BBE6-E9AA45305C66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F41CFB68-F075-48AF-BCCA-D1CEFFD56308}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F41CFB68-F075-48AF-BCCA-D1CEFFD56308}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F41CFB68-F075-48AF-BCCA-D1CEFFD56308}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F41CFB68-F075-48AF-BCCA-D1CEFFD56308}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8A961EE-CD99-452F-837F-AE75A197CEBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8A961EE-CD99-452F-837F-AE75A197CEBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8A961EE-CD99-452F-837F-AE75A197CEBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8A961EE-CD99-452F-837F-AE75A197CEBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E08E97D2-261F-40BE-8BA2-02BEF87EA87B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E08E97D2-261F-40BE-8BA2-02BEF87EA87B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E08E97D2-261F-40BE-8BA2-02BEF87EA87B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E08E97D2-261F-40BE-8BA2-02BEF87EA87B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE761323-5B26-4CD5-9299-6F7B3A2C94D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE761323-5B26-4CD5-9299-6F7B3A2C94D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE761323-5B26-4CD5-9299-6F7B3A2C94D0}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE761323-5B26-4CD5-9299-6F7B3A2C94D0}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{64093064-7E01-478E-9090-944977AABF6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64093064-7E01-478E-9090-944977AABF6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64093064-7E01-478E-9090-944977AABF6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64093064-7E01-478E-9090-944977AABF6A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {11025777-D1AF-4DCE-A5F0-B732F00BDEE6}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 15
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://dev.azure.com/juntu001
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Yokogawa.LMS.Platform.Data\\Yokogawa.LMS.Platform.Data.csproj
+		SccProjectName1 = Yokogawa.LMS.Platform.Data
+		SccLocalPath1 = Yokogawa.LMS.Platform.Data
+		SccProjectUniqueName2 = Yokogawa.LMS.Platform.Core\\Yokogawa.LMS.Platform.Core.csproj
+		SccProjectName2 = Yokogawa.LMS.Platform.Core
+		SccLocalPath2 = Yokogawa.LMS.Platform.Core
+		SccProjectUniqueName3 = Yokogawa.OAuth\\Yokogawa.OAuth.csproj
+		SccProjectName3 = Yokogawa.OAuth
+		SccLocalPath3 = Yokogawa.OAuth
+		SccProjectUniqueName4 = Yokogawa.Security.OAuth.Interfaces\\Yokogawa.Security.OAuth.Interfaces.csproj
+		SccProjectName4 = Yokogawa.Security.OAuth.Interfaces
+		SccLocalPath4 = Yokogawa.Security.OAuth.Interfaces
+		SccProjectUniqueName5 = Yokogawa.LMS.Platform.Authentication\\Yokogawa.LMS.Platform.Authentication.csproj
+		SccProjectName5 = Yokogawa.LMS.Platform.Authentication
+		SccLocalPath5 = Yokogawa.LMS.Platform.Authentication
+		SccProjectUniqueName6 = Yokogawa.Data.Infrastructure\\Yokogawa.Data.Infrastructure.csproj
+		SccProjectName6 = Yokogawa.Data.Infrastructure
+		SccLocalPath6 = Yokogawa.Data.Infrastructure
+		SccProjectUniqueName7 = Yokogawa.LMS.Exceptions\\Yokogawa.LMS.Exceptions.csproj
+		SccProjectName7 = Yokogawa.LMS.Exceptions
+		SccLocalPath7 = Yokogawa.LMS.Exceptions
+		SccProjectUniqueName8 = Yokogawa.LMS.Platform.Web\\Yokogawa.LMS.Platform.Web.csproj
+		SccProjectName8 = Yokogawa.LMS.Platform.Web
+		SccLocalPath8 = Yokogawa.LMS.Platform.Web
+		SccProjectUniqueName9 = Yokogawa.Security.OAuth\\Yokogawa.Security.OAuth.csproj
+		SccProjectName9 = Yokogawa.Security.OAuth
+		SccLocalPath9 = Yokogawa.Security.OAuth
+		SccProjectUniqueName10 = Yokogawa.LMS.Business.Data\\Yokogawa.LMS.Business.Data.csproj
+		SccProjectName10 = Yokogawa.LMS.Business.Data
+		SccLocalPath10 = Yokogawa.LMS.Business.Data
+		SccProjectUniqueName11 = Yokogawa.LMS.Business.Service\\Yokogawa.LMS.Business.Service.csproj
+		SccProjectName11 = Yokogawa.LMS.Business.Service
+		SccLocalPath11 = Yokogawa.LMS.Business.Service
+		SccProjectUniqueName12 = Yokogawa.LMS.Business.WebAPI\\Yokogawa.LMS.Business.WebAPI.csproj
+		SccProjectName12 = Yokogawa.LMS.Business.WebAPI
+		SccLocalPath12 = Yokogawa.LMS.Business.WebAPI
+		SccWebProject13 = true
+		SccProjectUniqueName13 = Yokogawa.LMS.WebpackTemplate
+		SccProjectName13 = Yokogawa.LMS.WebpackTemplate
+		SccLocalPath13 = Yokogawa.LMS.WebpackTemplate
+		SccProjectEnlistmentChoice13 = 2
+		SccProjectUniqueName14 = Yokogawa.LMS.Business.Service.UnitTest\\Yokogawa.LMS.Business.Service.UnitTest.csproj
+		SccProjectName14 = Yokogawa.LMS.Business.Service.UnitTest
+		SccLocalPath14 = Yokogawa.LMS.Business.Service.UnitTest
+	EndGlobalSection
+EndGlobal

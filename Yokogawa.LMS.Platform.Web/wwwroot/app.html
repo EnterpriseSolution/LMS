@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/kendo/kendo.common-office365.min.css" />
+    <link rel="stylesheet" href="css/kendo/kendo.default.min.css" />
+    <link rel="stylesheet" href="css/kendo/kendo.mobile.all.min.css" />
+    <link href="css/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <script src="libs/jquery/jquery.min.js"></script>
+    <script src="libs/jquery/jquery.i18n.js"></script>
+    <script src="libs/jquery/jquery.i18n.messagestore.js"></script>
+    <script src="libs/jquery/jquery.i18n.fallbacks.js"></script>
+    <script src="libs/jquery/jquery.i18n.language.js"></script>
+    <script src="libs/jquery/jquery.i18n.parser.js"></script>
+    <script src="libs/jquery/jquery.i18n.emitter.js"></script>
+    <script src="libs/jquery/jquery.i18n.emitter.bidi.js"></script>
+    <script src="libs/telerik/kendo.all.min.js"></script>
+    <script src="libs/telerik/kendo.timezones.min.js"></script>
+    <script src="src/Tangram.Core.js"></script>
+    <script src="src/mobile.kendo.js"></script>
+    <script src="src/components/mobile.viewmodel.js"></script>
+    <script src="src/app.js"></script>
+    <style>
+        .bg-login-image {
+            background-color: #59ace3 !important
+        }
+
+        .bigsystemicon {
+            background: url("img/yokologo.png") center no-repeat;
+            height: 30px;
+            width: 30px;
+            display: inline-block;
+            transform: rotate(45deg);
+            margin-right: 20px;
+            /* Other styles here */
+        }
+
+        .tm-language .k-input {
+            color: white;
+        }
+
+        .btnlogin {
+            width: 100%;
+            color: #59ace3 !important;
+            border-color: white !important;
+        }
+
+        .tm-loginfooter {
+            background-color: white !important;
+        }
+
+        .tabs {
+            background-image: none !important;
+            background-color: white !important; /*#f7f9fb*/
+            color: gray !important;
+            border-top: 0.1px #d0d0d0 solid !important;
+            /* box-shadow:0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);*/
+        }
+
+            .tabs .km-button {
+                color: lightgray !important;
+            }
+
+                .tabs .km-button.km-state-active {
+                    background-image: none !important;
+                    color: gray !important;
+                }
+
+            .tabs .km-text {
+                font-size: 10px !important;
+                font-weight: 100;
+            }
+
+
+        .tm-head {
+            background-image: none !important;
+            /*background-color:#5D8CAE !important;*/
+            background-color: white !important;
+            box-shadow: 0 0.1rem 0.5rem 0 rgba(58, 59, 69, 0.15);
+        }
+
+            .tm-head .km-button .km-text, .tm-head .km-view-title {
+                color: gray
+            }
+
+        .tm-subtitle {
+            background-image: none !important;
+            background-color: #f7f9fb !important;
+            /*height:40px;*/
+        }
+
+        .tm-subtitle {
+            background-image: none !important;
+            background-color: #f7f9fb !important;
+        }
+
+            .tm-subtitle .km-view-title, .tm-subtitle .km-button, .tm-subtitle .km-back:before {
+                color: blue !important;
+            }
+
+                .tm-subtitle .km-button i {
+                    font-size: 18px !important;
+                }
+
+        .tm-status {
+            border-radius: 0 !important;
+            text-align: center;
+        }
+
+            .tm-status h1 {
+                color: white;
+            }
+
+        .tm-alongside {
+            background-color: green
+        }
+
+        .tm-planned {
+            background-color: cornflowerblue
+        }
+
+        .scheduler .k-toolbar {
+            background-image: none;
+            background-color: #525eb6 !important;
+        }
+
+        .scheduler .k-button {
+            background-image: none;
+            background-color: #525eb6 !important;
+            border-color: #525eb6;
+            color: white;
+        }
+
+        .scheduler .k-nav-current {
+            color: white !important;
+        }
+
+        .k-scheduler-edit-form .localdate {
+            border: solid 1px lightgray;
+            line-height: 1.65em;
+            text-indent: 0.1em;
+        }
+
+        .tm-dropdown .k-dropdown-wrap {
+            background-image: none;
+            background-color: white;
+        }
+
+
+        .k-scheduler-table th {
+            background-color: white !important;
+        }
+
+        .fa .km-icon :after,
+        .fa .km-icon :before {
+            font: 25px/25px "Font Awesome 5 Free";
+        }
+
+        .km-fa-vessel:after,
+        .km-fa-vessel:before {
+            font: 23px/25px "Font Awesome 5 Free";
+            font-weight: 900;
+            content: '\f21a';
+            text-align: center;
+        }
+
+        .km-fa-calendar:after,
+        .km-fa-calendar:before {
+            font: 25px/25px "Font Awesome 5 Free";
+            content: "\f073";
+            font-weight: 900;
+            text-align: center;
+        }
+
+        .km-fa-document:after,
+        .km-fa-document:before {
+            font: 25px/25px "Font Awesome 5 Free";
+            content: "\f15c";
+            font-weight: 900;
+            text-align: center;
+        }
+
+        .km-fa-warehouse:after,
+        .km-fa-warehouse:before {
+            font: 20px/25px "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f494";
+            text-align: center;
+        }
+
+        .km-fa-transaction:after,
+        .km-fa-transaction:before {
+            font: 25px/25px "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f46c";
+            text-align: center;
+        }
+
+        .job-title {
+            font-size: .7em;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+</html>

@@ -1,0 +1,773 @@
+﻿<!--Vessel Schedule Calendar-->
+<div>
+    <div id="vesselSchedule">
+        <style>
+            .block {
+                border: 1px solid #cccccc;
+            }
+            .scheduler.k-scheduler .k-nonwork-hour {
+                background-color:#f6f8f5 !important;
+            }
+            span.required {
+                color:red;
+            }
+            .no-border {
+                border: 0;
+                box-shadow: none; /* You may want to include this as bootstrap applies these styles too */
+            }
+        </style>
+        <script id="shipment-template" type="text/x-kendo-template">
+            <div style="background-color:#:StatusColor#">
+               <span>#: title #</span><span style="margin:0.666em">#: VesselName #</span>
+            </div>
+        </script>
+        <script id="schedulerEditor" type="text/x-kendo-template">
+            <div class="form schedulerEditorform" style="width:100%">
+                <table style="width:90%;margin-left:5%;margin-right:5%">
+                    <tr>
+                        <td style="width:45%">Schedule No/Status</td>
+                        <td style="width:10%"></td>
+                        <td sstyle="width:45%" data-bind="visible:IsNew">
+                            <input type="radio" name="scheduletype" id="scheduletypeNew" class="k-radio" value="false" data-bind="checked: SelectSchedule,click:onScheduleTypeChanged">
+                            <label for="newschedule">New Schedule</label>
+                            <input type="radio" name="scheduletype" id="scheduletypeExisting" class="k-radio" value="true" data-bind="checked: SelectSchedule,click:onScheduleTypeChanged">
+                            <label for="existschedule">Existing Schedule</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="height:10px"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="input-group">
+                                <input data-role="combobox" class="form-control vesselScheduleNoDDL"
+                                       data-placeholder="Type a Schedule No"
+                                       data-value-primitive="true"
+                                       data-text-field="VesselScheduleNo"
+                                       data-value-field="Id" id="vesselScheduleNoDDL" name="vesselScheduleNoDDL"
+                                       data-bind="value: title,source:VesselScheduleList,enabled:SelectSchedule,events:{change: onVesselScheduleNoChange}"
+                                       style="width:60%" />
+                                <label class="form-control no-border" style="width: 2%">/</label>
+                                <input type="text" id="vesselStatus" class="form-control" readonly name="vesselStatus" style="width:30%" data-auto-bind="false" data-value-primitive="true" data-bind="value:StatusName" />
+                            </div>
+
+                        </td>
+                        <td></td>
+                        <td class="schedulerDate">
+                            <input type="checkbox" id="utpilot" name="utpilot" style="margin-left: 5pt;" class="k-checkbox UTPilotFlag" data-bind="checked:UTPilotFlag">
+                            <label class="k-checkbox-label" for="utpilot">UT Pilot</label>
+                            <input type="radio" name="vesseltype" id="vessel" style="margin-left: 5pt;" class="k-radio MooringTypeVessel" data-bind="checked: MooringType" value="1">
+                            <label for="vessel" class="k-radio-label">Vessel</label>
+                            <input type="radio" name="vesseltype" id="barge" style="margin-left: 5pt;" class="k-radio MooringTypeBarge" data-bind="checked: MooringType" value="2">
+                            <label for="barge" class="k-radio-label">Barge</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="height:10px"></td>
+                    </tr>
+                    <tr>
+                        <td style="width:45%">Arrival Time</td>
+                        <td style="width:10%"></td>
+                        <td sstyle="width:45%">
+                            Departure Time
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="schedulerDate">
+                            <div data-container-for="start">
+                                <input type="text" data-type="date" class="start" data-role="datetimepicker" data-bind="value:start,invisible:isAllDay" name="plannedArrivalDate" id="plannedArrivalDate" />
+                                <input type="text" data-type="date" data-role="datepicker" data-bind="value:start,visible:isAllDay" name="plannedArrivalDate" id="plannedArrivalDate" />
+                                <span data-bind="text: startTimezone"></span>
+                                <span data-for="start" class="k-invalid-msg" style="display: none;"></span>
+                            </div>
+                        </td>
+                        <td></td>
+                        <td class="schedulerDate">
+                            <div data-container-for="end">
+                                <input type="text" data-type="date" class="end" data-role="datetimepicker" data-bind="value:end,invisible:isAllDay" data-datecompare-msg="End date should be greater than or equal to the start date" name="plannedDepartureDate" id="plannedDepartureDate" />
+                                <input type="text" data-type="date" data-role="datepicker" data-bind="value:end,visible:isAllDay" data-datecompare-msg="End date should be greater than or equal to the start date" name="plannedDepartureDate" id="plannedDepartureDate" />
+                                <span data-bind="text: endTimezone"></span>
+                                <span data-bind="text: startTimezone, invisible: endTimezone"></span>
+                                <span data-for="end" class="k-invalid-msg" style="display: none;"></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="height:10px"></td>
+                    </tr>
+                    <tr>
+                        <td style="width:45%">Vessel Name<span class="required">*</span></td>
+                        <td style="width:10%"></td>
+                        <td sstyle="width:45%">Assigned Jetty</td>
+                    </tr>
+                    <tr>
+                        <td>
+                          <select class="vesselDDL" id="vesselDDL" name="vesselDDL" required="required" validationmessage="Vessel is required." style="width:100%" data-role="combobox" data-auto-bind="false" data-value-primitive="true" data-text-field="text" data-value-field="value" data-bind="value:VesselId,source:VesselList"></select>
+                        </td>
+                        <td></td>
+                        <td><select class="jettyDDL" id="jettyDDL" nae="jettyDDL" style="width:100%" data-role="combobox" data-auto-bind="false" data-value-primitive="true" data-text-field="text" data-value-field="value" data-bind="value:JettyId,source:JettyList"></select></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="height:10px"></td>
+                    </tr>
+                    <tr>
+                        <td style="width:45%">Master Name</td>
+                        <td style="width:10%"></td>
+                        <td sstyle="width:45%">Agent</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" id="masterName" name="masterName" class="masterName k-textbox" style="width:100%" data-auto-bind="false" data-value-primitive="true" data-bind="value:MasterName" />
+                        </td>
+                        <td></td>
+                        <td>
+                            <select id="agentDDL" name="agentDDL" class="agentDDL" style="width:100%" data-role="combobox" data-auto-bind="false" data-value-primitive="true" data-text-field="text" data-value-field="value" data-bind="value:ShipAgentId,source:ShipAgentList"></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="height:10px"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Remark</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <div class="t-fieldlist" style="width:100%;height:60px">
+                                <textarea id="remark" name="remark" data-bind="value:Remark" data-role="textarea"
+                                          data-resizable="none"
+                                          data-max-length="500"
+                                          data-rows="5" placeholder="Enter your remark here"></textarea>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </script>
+        <div class="form">
+            <select data-role="multiselect"
+                    data-placeholder="Filter by Jetty"
+                    data-value-primitive="true"
+                    data-text-field="text"
+                    data-value-field="value"
+                    data-auto-close="false"
+                    data-bind="source: masterData,value:SelectedJetty,events:{ change: onFilterJetty}" style="width:20%;border-bottom:none"></select>
+        </div>  
+         <div class="scheduler" style="margin-right:0.666em"></div>
+</div>
+</div>
+<!--Vessel Schedule Form-->
+<div>
+    <div id="vesselScheduleForm">
+        <style>
+            .vesselscheduleform div.title {
+                  text-decoration: underline;
+                  font-weight:bold;
+                  color:black;
+            }
+             .vesselscheduleform span.block {
+                border: 1px solid #cccccc;
+            }
+        </style>
+        <div class="form vesselscheduleform" style="width:100%">
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col3">
+                    <div class="title">Jetty Schedule</div>
+                    <div class="t-fieldlist">
+                        Schedule No 
+                        <input type="text" readonly="readonly"  disabled="disabled"  data-bind="value:data.VesselScheduleNo" class="k-textbox">
+                    </div>
+                    <div class="t-fieldlist">
+                        <div>
+                            <input type="checkbox" id="utpilot" class="k-checkbox" data-bind="checked:data.UTPilotFlag,enabled:data.AllowEdit" >          <span style="margin-left: 5pt;">UT Pilot</span>
+                            <input type="radio" name="vesseltype" class="k-radio" data-bind="checked: data.MooringType,enabled:data.AllowEdit"  value="1"><span style="margin-left: 5pt;">Vessel</span>
+                            <input type="radio" name="vesseltype" class="k-radio" data-bind="checked: data.MooringType,enabled:data.AllowEdit"  value="2"><span style="margin-left: 5pt;">Barge</span>
+                        </div>
+                    </div>
+                    <div class="t-fieldlist">
+                        Assigned Jetty
+                        <select class="block" style="width:100%" data-role="dropdownlist" data-auto-bind="false" data-value-primitive="true" data-text-field="text" data-value-field="value" data-bind="value:data.JettyId,source:data.JettyList,enabled:data.AllowEdit"></select>
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18 t-col3">
+                    <div class="t-fieldlist">
+                        Planned Arrival <span class="required">*</span>
+                        <input type="text" data-role="datetimepicker" name="PlannedArrival" validationMessage="Planned Arrival is required" data-interval="15" data-type="date" data-bind="value:data.PlannedArrivalTime,,enabled:data.AllowEdit,events:{ change: onActualDateChanged }" required />
+                    </div>
+                    <div class="t-fieldlist">
+                        Planned Departure
+                        <input type="text" data-role="datetimepicker" name="PlannedDepartureTime" data-interval="15" data-type="date" data-bind="value:data.PlannedDepartureTime,,enabled:data.AllowEdit,events:{ change: onActualDateChanged }" />
+                    </div>
+                    <div class="t-fieldlist">
+                        Planned Hours
+                        <input type="text" readonly="readonly" disabled="disabled"  data-bind="value:data.PlannedHours" class="k-textbox">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18 t-col3">
+                    <div class="t-fieldlist">
+                        1st Line Ashore
+                        <input type="text" data-role="datetimepicker" name="FirstLineAshore" data-interval="15" data-type="date" data-bind="value:data.ActualArrivalTime,,enabled:data.AllowEdit,events:{ change: onActualDateChanged }" />
+                    </div>
+                    <div class="t-fieldlist">
+                        Vessel All Clear
+                        <input type="text" data-role="datetimepicker" name="VesselAllClear" data-interval="15" data-type="date" data-bind="value:data.ActualDepartureTime,,enabled:data.AllowEdit,events:{ change: onActualDateChanged }" />
+                    </div>
+                    <div class="t-fieldlist">
+                        Alongside Hours
+                        <input readonly="readonly" disabled="disabled"  type="text" data-bind="value:data.AlongsideHours" class="k-textbox">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18 t-col3">
+                    <div class="t-fieldlist" style="width:97%">
+                        Remark
+                            <textarea data-bind="value:data.Remark,enabled:data.AllowEdit,events:{change:onInputRemark}" data-role="textarea"
+                                  data-resizable="none"
+                                  data-max-length="500"
+                                  data-rows="8" placeholder="Enter your remark here"></textarea>
+                            <div class="k-counter-container"><span class="k-counter-value">0</span>/500</div>
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+
+            </div>
+            <br />
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18 t-col3">
+                    <div class="title">Vessel</div>
+                    <div class="t-fieldlist">
+                       Vessel Name <span class="required">*</span>
+                       <span class="k-numeric-wrap t-textbox-wrap">
+                                         <input type="text"  data-bind="value:data.VesselId,visible:false"  />
+                                        <input type="text" data-bind="value:data.VesselName" required validationmessage='{0} is required' name="Vessel"
+                                               disabled="disabled" class="k-textbox">
+                                        <span class="k-select" data-bind="visible:data.AllowEdit,events:{click:onSelectVesselLov}"><i class="fas fa-search"></i></span>
+                       </span>
+                    </div>
+                    <div class="t-fieldlist">
+                        Vessel Flag
+                        <input type="text" data-bind="value:data.VesselFlag" readonly="readonly" class="k-textbox" >
+                    </div>
+                    <div class="t-fieldlist">
+                        DWT
+                        <input type="text"  disabled="disabled" readonly="readonly" data-bind="value:data.DWT" class="k-textbox">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18 t-col3">
+                    <div class="t-fieldlist">
+                        Master Name
+                        <input type="text" data-bind="value:data.MasterName,enabled:data.AllowEdit" class="k-textbox">
+                    </div>
+                    <div class="t-fieldlist">
+                        Ship Agent
+                        <span class="k-numeric-wrap t-textbox-wrap">
+                            <input type="text"  data-bind="value:data.ShipAgentName"  validationmessage='Please enter {0}' name="Ship Agent" 
+                                   disabled="disabled" class="k-textbox">
+                            <span class="k-select" data-bind="visible:data.AllowEdit,events:{click:onSelectShipAgentLov}"><i class="fas fa-search"></i></span>
+                        </span>
+                    </div>
+                    <div class="t-fieldlist">
+                        <input type="text" data-bind="value:data.ShipAgentId,visible:false" />
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18">
+                    <div class="title">Orders</div>
+                    <div class="grid" style="margin-left:1.5%;margin-right:1.5%"></div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--Vessel timesheet-->
+<div>
+    <div id="timesheetForm">
+        <style>       
+
+            .timesheetform span.block {
+                border: 1px solid #cccccc;
+            }
+        </style>
+        <div class="form vesselscheduleform" style="width:96%;margin-left:2%;">
+            <div class="t-fieldlist">
+                Arrival at Pilot Station
+                <input type="text" data-role="datetimepicker" data-interval="15"
+                       data-type="date" data-bind="value:data.ArrvialAtPilotStation,enabled:data.AllowEdit" />
+            </div>
+            <div class="t-fieldlist">
+                Health Immigration Clear
+                <input type="text" data-role="datetimepicker"
+                       data-interval="15" data-type="date" data-bind="value:data.HealthImmCleared,enabled:data.AllowEdit" />
+            </div>
+            <div class="t-fieldlist">
+                Pilot onboard for berth
+                <input type="text"
+                       data-role="datetimepicker" data-interval="15"
+                       data-type="date" data-bind="value:data.BookingPilot,enabled:data.AllowEdit" />
+            </div>
+            <div class="t-fieldlist">
+                1st Line ashore
+                <input type="text" data-role="datetimepicker" data-interval="15" name="FirstLineAshore"
+                       data-type="date" data-bind="value:data.FirstLineAshore,,enabled:data.AllowEdit,events:{ change: onActualDateChanged }" />
+            </div>
+            <div class="t-fieldlist">
+                Mooring Complete
+                <input type="text" data-role="datetimepicker" data-interval="15"
+                       data-type="date" data-bind="value:data.MooringCompleted,enabled:data.AllowEdit" />
+            </div>
+            <div class="t-fieldlist">
+                Start deballasting
+                <input type="text" data-role="datetimepicker" data-interval="15"
+                       data-type="date" data-bind="value:data.StartedDeballasting,enabled:data.AllowEdit" />
+            </div>
+            <div class="t-fieldlist">
+                Finish deballasting
+                <input type="text" data-role="datetimepicker" data-interval="15"
+                       data-type="date" data-bind="value:data.FinishedDeballasting,enabled:data.AllowEdit" />
+            </div>
+            <div class="t-fieldlist">
+                Start ullaging/sampling/inspection
+                <input type="text" data-role="datetimepicker" data-interval="15"
+                       data-type="date" data-bind="value:data.StartedUllagingSampling,enabled:data.AllowEdit" />
+            </div>
+            <div class="t-fieldlist">
+                Finish ullaging/sampling/inspection
+                <input type="text" data-role="datetimepicker" data-interval="15"
+                       data-type="date" data-bind="value:data.FinishedUllagingSampling,enabled:data.AllowEdit" />
+            </div>
+            <div class="t-fieldlist">
+                Notice readiness tendered
+                <input type="text" data-role="datetimepicker" data-interval="15"
+                       data-type="date" data-bind="value:data.NoticeTendered,enabled:data.AllowEdit" />
+            </div>
+            <div class="t-fieldlist">
+                Notice readiness Accepted
+                <input type="text" data-role="datetimepicker" data-interval="15"
+                       data-type="date" data-bind="value:data.NoticeAccepted,enabled:data.AllowEdit" />
+            </div>
+            <div class="t-fieldlist">
+                Start ballasting
+                <input type="text" data-role="datetimepicker" data-interval="15"
+                       data-type="date" data-bind="value:data.StartedBallasting,enabled:data.AllowEdit" />
+            </div>
+            <div class="t-fieldlist">
+                Finish ballasting
+                <input type="text" data-role="datetimepicker" data-interval="15"
+                       data-type="date" data-bind="value:data.FinishedBallasting,enabled:data.AllowEdit" />
+            </div>
+            <div class="t-fieldlist">
+                Document onboard
+                <input type="text" data-role="datetimepicker" data-interval="15"
+                       data-type="date" data-bind="value:data.DocumentOnBoard,enabled:data.AllowEdit" />
+            </div>
+            <div class="t-fieldlist">
+                Pilot onboard for Sailing
+                <input type="text" data-role="datetimepicker" data-interval="15"
+                       data-type="date" data-bind="value:data.PilotSailing,enabled:data.AllowEdit" />
+            </div>
+            <div class="t-fieldlist">
+                Start Unmooring
+                <input type="text" data-role="datetimepicker" data-interval="15"
+                       data-type="date" data-bind="value:data.StartUnmooring,enabled:data.AllowEdit" />
+            </div>
+            <div class="t-fieldlist">
+                Vessel All Clear
+                <input type="text" data-role="datetimepicker" data-interval="15" name="VesselAllClear"
+                       data-type="date" data-bind="value:data.VesselAllClear,,enabled:data.AllowEdit,events:{ change: onActualDateChanged }" />
+            </div>
+        </div>
+        <div style="width:96%;margin-left:2%;">
+
+        </div>
+    </div>
+</div>
+<!--BOL Form for Vessel-->
+<div>
+    <div id="vesselBOL">
+        <style>
+            .listviewtable td.title, span.title {
+                text-decoration: underline;
+                font-weight: bold;
+                color: black;
+            }
+
+            .listviewtable {
+                border: 1px solid #cccccc;
+                width: 100%;
+                margin-bottom: 0.5em;
+            }
+
+                .listviewtable .block {
+                    border: 1px solid #cccccc;
+                    height: 2.5em
+                }
+
+            .bol-view-row .t-fieldlist span {
+                display: block;
+                width: 100%;
+            }
+
+            .listviewtable table.orderlist {
+                width: 100%;
+                margin-left: 1.5%;
+                margin-right: 1.5%;
+                margin-top: 1em;
+                margin-bottom: 1em;
+                border: 1px solid #cccccc;
+            }
+
+                .listviewtable table.orderlist td {
+                    height: 2.5em;
+                    vertical-align: middle;
+                }
+
+                    .listviewtable table.orderlist td span {
+                        margin-left: 1em
+                    }
+
+                .listviewtable table.orderlist .head, .listviewtable .borderline {
+                    border: 1px solid #cccccc;
+                }
+
+            .listviewtable span.text {
+                color: black;
+                font-weight: bold;
+                font-size: 1.05rem;
+            }
+
+            .listviewtable span.text:empty:before {
+                 content: "\200b"; 
+            }
+        </style>
+    <script type="text/x-kendo-tmpl" id="vesselBOLEditTemplate">
+            <table class="listviewtable">
+                <tr class="block">
+                    <td class="title"><span style="margin-left:1em">BOL-</span><span data-bind="text:Index"></span></td>
+                    <td></td>
+                    <td style="float:right">
+                        <a class="k-button k-update-button" href="\\#"><span class="k-icon k-i-check"></span>Save</a>
+                        <a class="k-button k-cancel-button" href="\\#"><span class="k-icon k-i-cancel"></span>Cancel</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div class="bol-view" style="margin-top:1em">
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <div class="col-10 t-col3">
+                                    <div class="t-fieldlist">
+                                        BOL No
+                                        <input type="text" data-bind="value:BOLNo,enabled:IsNewRecord" readonly="readonly" class="k-textbox">
+                                    </div>
+                                    <div class="t-fieldlist">
+                                        Customer Name
+                                        <span class="k-numeric-wrap t-textbox-wrap">
+                                            <input type="text" data-role="textbox" data-bind="value:CustomerName" disabled="disabled" class="k-textbox">
+                                            <span class="k-select bolCustomerLov"><i class="fas fa-search"></i></span>
+                                        </span>
+
+                                    </div>
+                                    <div class="t-fieldlist">
+                                        Destination
+                                        <input type="text" value="" data-bind="value:Destination" class="k-textbox" required validationmessage='Please enter {0}' name="Destination">
+                                    </div>
+                                </div>
+                                <div class="col-1"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <div class="col-10 t-col3">
+                                    <div class="t-fieldlist">
+                                        Product Sell Name
+                                        <input type="text" value="" data-bind="value:SellingName" class="k-textbox" required validationmessage='Please select {0}' name="Product Selling Name">
+                                    </div>
+                                    <div class="t-fieldlist">
+                                        Total Qty
+                                        <input data-role="numerictextbox" data-format="n0" data-bind="value:TotalQty">
+                                    </div>
+                                    <div class="t-fieldlist">
+                                        UOM
+                                        <select style="width:100%" class="borderline" data-role="dropdownlist" data-auto-bind="false" data-value-primitive="true" data-text-field="text" data-value-field="value" data-bind="value:UOM,source:UOMList" required validationmessage='Please select {0}' name="UOM"></select>
+                                    </div>
+                                </div>
+                                <div class="col-1"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <div class="col-10 t-col3">
+                                    <div class="t-fieldlist">
+                                        Custom Permit No
+                                        <input type="text" value="" data-bind="value:CustomPermitNo" class="k-textbox">
+                                    </div>
+                                    <div class="t-fieldlist">
+                                        Consignor
+                                        <input type="text" value="" data-bind="value:Consignor" class="k-textbox">
+                                    </div>
+                                    <div class="t-fieldlist">
+                                        Consignee
+                                        <input type="text" value="" data-bind="value:Consignee" class="k-textbox">
+                                    </div>
+                                </div>
+                                <div class="col-1"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <div class="col-10 t-col3">
+                                    <div class="t-fieldlist">
+                                        Freight
+                                        <input type="text" value="" data-bind="value:Freight" class="k-textbox">
+                                    </div>
+                                    <div class="t-fieldlist">
+                                        Country of Lading
+                                        <input type="text" value="" data-bind="value:CountryOfLoading" class="k-textbox" required validationmessage='Please enter {0}' name="Country of Lading">
+                                    </div>
+                                    <div class="t-fieldlist">
+                                    </div>
+                                </div>
+                                <div class="col-1"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <div class="col-10 t-col3">
+                                    <div class="t-fieldlist">
+                                        Doc Instruction
+                                        <input type="text" value="" data-bind="value:DOCInstructor" class="k-textbox">
+                                    </div>
+                                    <div class="t-fieldlist">
+                                        Remark
+                                        <input type="text" value="" data-bind="value:Remark" class="k-textbox">
+                                    </div>
+                                    <div class="t-fieldlist">
+
+                                    </div>
+                                </div>
+                                <div class="col-1"></div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col-10 t-col3" style="height:2em">
+                                <div class="t-fieldlist">
+                                    <div><span class="title">Cutting Plan</span></div>
+                                </div>
+                                <div class="t-fieldlist">
+                                </div>
+                                <div class="t-fieldlist">
+                                    <div data-bind="visible:AllowEdit">
+                                        <span style="float:right;margin-right:15px">
+                                            <button class="add k-button">Add</button>
+                                            <button class="save k-button"><span class="k-icon k-i-check"></span>Save changes</button>
+                                        </span>
+                                            
+</div>
+                                </div>
+                            </div>
+                            <div class="col-1"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col-10 t-col3">
+                                <div class="t-fieldlist">
+                                </div>
+                                <div class="t-fieldlist">
+                                    <div class="grid" data-role="grid"
+                                         data-editable="true"
+                                         data-columns="[
+                                                        { 'field': 'CustomerOrderNo',type: 'string', 'width': 270 ,'editable': false },
+                                                        { 'field': 'ProductName',type: 'string','editable': false },
+                                                        { 'field': 'QtyTarget',title:'QTY' },
+                                                        { 'field': 'QtyActual',type: 'number',title:'ACTUAL','editable': false, },
+                                                        { 'field': 'UOMName',type: 'string','editable': false },
+                                                        { 'field': 'BlendingFlag',type:'boolean', 'editable': false,title:'BLD?',                                          
+                                                                   'template': '&lt;input type=&quot;checkbox&quot; class=&quot;chkbx k-checkbox&quot; /&gt;','hidden': true },
+                                                        { command: [ 'destroy'], title: '&nbsp;' }
+                                         ]"
+                                         data-bind="source: CuttingPlanList"
+                                         style="height: 200px"></div>
+                                </div>
+                                <div class="t-fieldlist">
+                                </div>
+                            </div>
+                            <div class="col-1"></div>
+                        </div>
+
+                    </td>
+                </tr>
+            </table>          
+        </script>
+        
+        
+
+    <script type="text/x-kendo-tmpl" id="vesselBOLTemplate">
+            <table class="listviewtable">
+                <tr class="block">
+                    <td class="title"><span style="margin-left:1em">BOL-#:Index==null?0:Index#</span></td>
+                    <td></td>
+                    <td style="float:right">
+                        <a class="k-button k-button-icontext k-add-button" href="\\#" style="display:#=AllowEdit#">
+                            <span class="k-icon k-i-add"></span>Add
+                        </a>
+                        <a class="k-button k-copy-button" href="\\#" style="display:#=AllowEdit#">
+                            <span class="far fa-copy" style="margin-right:5px">Copy</span>
+                        </a>
+                        <a class="k-button k-edit-button" href="\\#" style="display:#=AllowEdit#">
+                            <span class="k-icon k-i-edit"></span>Edit
+                        </a>
+                        <a class="k-button k-delete-button" href="\\#" style="display:#=AllowEdit#">
+                            <span class="k-icon k-i-close"></span>Delete
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div class="bol-view" style="margin-top:1em">
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <div class="col-10 t-col3 bol-view-row">
+                                    <div class="t-fieldlist">
+                                        BOL No
+                                        <span class="text">#:BOLNo==null?'':BOLNo#</span>
+                                    </div>
+                                    <div class="t-fieldlist">
+                                        Customer Name
+                                        <span class="text">#:CustomerName==null?'':CustomerName#</span>
+                                    </div>
+                                    <div class="t-fieldlist">
+                                        Destination
+                                        <span class="text">#:Destination==null?'':Destination#</span>
+                                    </div>
+                                </div>
+                                <div class="col-1"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <div class="col-10 t-col3 bol-view-row">
+                                    <div class="t-fieldlist">
+                                        Product Sell Name
+                                        <span class="text">#:SellingName==null?'':SellingName#</span>
+                                    </div>
+                                    <div class="t-fieldlist">
+                                        Total Qty
+                                        <span class="text">#:TotalQty==null?'':TotalQty#</span>
+                                    </div>
+                                    <div class="t-fieldlist">
+                                        UOM
+                                        <span class="text">#:UOMName==null?'':UOMName#</span>
+                                    </div>
+                                </div>
+                                <div class="col-1"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <div class="col-10 t-col3 bol-view-row">
+                                    <div class="t-fieldlist">
+                                        Custom Permit No
+                                        <span class="text">#:CustomPermitNo==null?'':CustomPermitNo#</span>
+                                    </div>
+                                    <div class="t-fieldlist">
+                                        Consignor
+                                        <span class="text">#:Consignor==null?'':Consignor#</span>
+                                    </div>
+                                    <div class="t-fieldlist">
+                                        Consignee
+                                        <span class="text">#:Consignee==null?'':Consignee#</span>
+                                    </div>
+                                </div>
+                                <div class="col-1"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <div class="col-10 t-col3 bol-view-row">
+                                    <div class="t-fieldlist">
+                                        Freight
+                                        <span class="text">#:Freight==null?'':Freight#</span>
+                                    </div>
+                                    <div class="t-fieldlist">
+                                        Country of Lading
+                                        <span class="text">#:CountryOfLoading==null?'':CountryOfLoading#</span>
+                                    </div>
+                                    <div class="t-fieldlist">
+                                        Actual Qty
+                                        <span class="text">#:QtyActual==null?'':QtyActual#</span>
+                                    </div>
+                                </div>
+                                <div class="col-1"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <div class="col-10 t-col3">
+                                    <div style="min-height:100px">
+                                        <div><span class="title">Cutting Plan</span></div>
+                                        <table class="orderlist">
+                                            <tr class="head">
+                                                <td><span>ORDER NO</span></td>
+                                                <td><span>PRODUCT</span></td>
+                                                <td><span>QTY</span></td>
+                                                <td><span>ACTUAL</span></td>
+                                                <td><span>UOM</span></td>
+                                                <td style="display:none"><span>BLD?</span></td>
+                                            </tr>
+                                            # if (CuttingPlanList==null)
+                                            CuttingPlanList =[];
+
+                                            for (var i = 0; i < CuttingPlanList.length; i++) { #
+                                            <tr>
+                                                <td><span>#= CuttingPlanList[i].CustomerOrderNo#</span></td>
+                                                <td><span>#= CuttingPlanList[i].ProductName#</span></td>
+                                                <td><span>#= CuttingPlanList[i].QtyTarget#</span></td>
+                                                <td><span>#= CuttingPlanList[i].QtyActual==null?'':CuttingPlanList[i].QtyActual#</span></td>
+                                                <td><span>#= CuttingPlanList[i].UOMName#</span></td>
+                                                <td style="display:none">
+                                                    <input type="checkbox" data-bind="checked: #= CuttingPlanList[i].BlendingFlag#" />
+                                                </td>
+                                            </tr>
+                                            # } #
+
+                                            #if (CuttingPlanList.length==0) {#
+                                            <tr style="min-height:40px"><td colspan="5"></td></tr>
+                                            #}#
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-1"></div>
+                            </div>
+
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+        </script>
+
+       
+    
+            <div class="listview"></div>
+            <div class="listviewpager"></div>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+﻿<script id="summarylist" type="text/x-kendo-template">
+    <div class="head"><i class="#:type#"></i>#:title#</div>
+    <div class="grid"></div>
+</script>
+<script id="listpage" type="text/x-kendo-template">
+    <ul class="clearfix buttonmenu"></ul>
+    <div class="searcher"></div>
+    <h2>#:title#</h2>
+    <p class="filter">
+    </p>
+    <div class="grid" style="padding-bottom:0.2em">
+    </div>
+</script>
+<script id="pagedetail" type="text/x-kendo-template">
+    <div class="toolbar sticky"></div>
+    <div class="clearfix header">
+        <div style="margin-top:40px">
+            <h1>#:title#</h1>
+            <ul class="headcolumns d-md-block" style="display:none" data-template="head-template" data-bind="source: headers"></ul>
+        </div>
+    </div>
+    <div class="pages">
+        <ul class="clearfix navigation"></ul>
+    </div>
+</script>
+<script id="head-template" type="text/x-kendo-template">
+    <li><span data-bind='text: title'></span><span data-bind='text: value'></span></li>
+</script>
+<script id="advancedsearch" type="text/x-kendo-template">
+    <div class="toolbar" style="border-width:0px;border-bottom-width:1px"></div>
+    <br />
+    <div class="searchPanel" style="margin-left:10px;margin-right:10px">
+        <table name="searchcontrol" style="width:100%;margin-bottom:10px">
+            <tr style="height:35px;">
+                <td style="width:5px;">
+                    <input type="checkbox" style="display:none" />
+                </td>
+                <td style="width:8%;">
+                    <select name="join" style="width:100%"></select>
+                </td>
+                <td style="width:10px"></td>
+                <td style="width:30%">
+                    <select name="conditions" style="width:100%"></select>
+                </td>
+                <td style="width:10px"></td>
+                <td style="width:12%">
+                    <select name="Operator" style="width:100%"></select>
+                </td>
+                <td style="width:10px"></td>
+                <td style="width:47%">
+                    <select name="value" style="width:100%;"></select>
+                </td>
+            </tr>
+        </table>
+    </div>
+</script>
+<script id="splitpanel" type="text/x-kendo-template">
+    <div class="split" style="border-style:none;margin-left:-15px;margin-right:-15px;margin-top:-5px">
+        <div class="top_panel" style="margin-left:5px;margin-top:5px;margin-right:5px;margin-bottom:5px">
+        </div>
+        <div class="content_panel" style="padding-left:15px;padding-right:15px">
+        </div>
+    </div>
+</script>

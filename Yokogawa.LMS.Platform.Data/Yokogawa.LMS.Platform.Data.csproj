@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="DTOs\IRefreshTokenDto.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="5.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Yokogawa.Data.Infrastructure\Yokogawa.Data.Infrastructure.csproj" />
+    <ProjectReference Include="..\Yokogawa.LMS.Exceptions\Yokogawa.LMS.Exceptions.csproj" />
+    <ProjectReference Include="..\Yokogawa.Security.OAuth.Interfaces\Yokogawa.Security.OAuth.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>

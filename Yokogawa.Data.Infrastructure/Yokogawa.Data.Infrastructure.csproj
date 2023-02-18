@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="DTOs\Base\BaseAuditableDto.cs" />
+    <Compile Remove="DTOs\Base\BaseDto.cs" />
+    <Compile Remove="DTOs\PagedCollectionDto.cs" />
+    <Compile Remove="DTOs\UserProfile.cs" />
+    <Compile Remove="Entities\Base\IEntityTypeConfiguration.cs" />
+    <Compile Remove="Entities\SoftDelete.cs" />
+    <Compile Remove="Extensions\ClaimsPrincipalExtenstion.cs" />
+    <Compile Remove="IAuditService.cs" />
+    <Compile Remove="IUserService.cs" />
+    <Compile Remove="QueryObjects\PagingUtils.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="EPPlus" Version="5.7.1" />
+    <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.16" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.16" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="System.DirectoryServices.AccountManagement" Version="5.0.0" />
+  </ItemGroup>
+
+</Project>

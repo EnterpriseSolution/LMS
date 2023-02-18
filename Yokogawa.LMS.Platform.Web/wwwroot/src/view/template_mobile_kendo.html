@@ -1,0 +1,354 @@
+﻿<div>
+    <div id="tabscriptLayout">
+        <header data-role="header">
+            <div data-role="navbar" class="tm-head">
+                <span data-role="view-title"></span>
+                <a id="openmenu" data-align="right" data-role="button"><i class="far fa-user"></i></a>
+            </div>
+        </header>
+        <p>TabStrip</p>
+        <div data-role="footer" class="tm-footer">
+            <div data-role="tabstrip" class="tabs">
+            </div>
+        </div>
+    </div>
+</div>
+<!--Login-->
+<div>
+    <div id="loginForm">
+        <form style="margin-left:50px;margin-right:50px;margin-bottom:30px">
+            <h1 class="h3" style="color:white;text-align:center">
+                <span style="margin-right:20px" class="bigsystemicon"></span>YOKOGAWA
+            </h1>
+            <h3 style="color:white;text-align:center">
+                TLSVP Mobile
+            </h3>
+            <br />
+            <br />
+            <ul data-role="listview" data-style="inset">
+                <li>
+                    <label class="km-label-above" style="color:white">
+                        <i class="fas fa-user" style="padding-right:10px;"></i><span data-i18n="User Name"></span>
+                        <input data-bind="value:data.UserId" type="text" style="color:white;width:85%" />
+                    </label>
+                </li>
+                <li>
+                    <label class="km-label-above" style="color:white">
+                        <i class="fas fa-lock" style="padding-right:10px"></i><span data-i18n="Password"></span>
+                        <input class="password" data-bind="value:data.Password,events:{change:onChanged, keyup:onKeyup,touchend:onKeyup}" type="password" style="color:white;width:85%" /><i class="far fa-eye" data-bind="visible: isVisible,events:{click:onTogglePassword}" style="position:absolute;top:60%;right:0%"></i>
+                    </label>
+                </li>
+                <li>
+                    <label class="km-label-above tm-language" style="color:white">
+                        <i class="fas fa-globe-americas" style="padding-right:10px"></i><span data-i18n="Language"></span>
+                        <br />
+                        <select data-role="dropdownlist" style="padding-top:10px;color:white;width:85%" data-bind="value:data.LanguageId,events:{change:onLanuageChanged}">
+                            <option value="vi">Vietnamese</option>
+                            <option value="en">English</option>
+                        </select>
+                    </label>
+                </li>
+            </ul>
+            <br />
+        </form>
+        <div data-role="footer" class="tm-loginfooter">
+            <a class="btnlogin" data-role="button" data-animated="true" data-bind="events: {click: onLogin}"><span data-i18n="Login"></span></a>
+        </div>
+    </div>
+</div>
+<!--shipment-->
+<div>
+        <div id="shipment">
+            <script id="shipment-template" type="text/x-kendo-template">
+                <div class="tm-status km-thumbnail" style="background-color:#:color#"><h1>#:status#</h1></div>
+                <h4 class="km-bold">#:shipmentNo# <i class="far fa-calendar-alt" style="float:right"> #:ETA#</i></h4>
+                <p class="job-title">#:vesselName#</p>
+            </script>
+            <ul class="tm-listview"></ul>
+        </div>
+</div>
+<!--vessel list-->
+<div>
+    <div id="vessels">
+        <ul class="tm-listview"></ul>
+    </div>
+</div>
+<!--shipment details-->
+<div>
+    <div id="shipmentDetails">
+        <script id="orderList" type="text/x-kendo-template">
+            <p><i class="#:OperationTypeIcon# style="margin-right:10px"></i>#: OrderNo #<span style="margin-left:40px">#: ProductName #</span></p>
+            <p>#: CustomerName#</p>
+            <p>#: Qty # <span style="margin-right:10px">#: UOM #</span></p>
+        </script>
+     <div class="firstSection" data-role="collapsible">
+           <h3><span data-bind="text:data.title" /></h3>
+                <ul data-role="listview" data-style="inset">
+                    <li>
+                        <label class="km-label-above">
+                            <span data-i18n="Vessel">Vessel</span>
+                            <p style="margin-bottom:-1.97em">
+                                <span data-bind="text:data.vesselName" style="font-size:1.2rem"></span>
+                                <a data-bind="events:{click:selectVessel}" style="float:right"><i class="fas fa-chevron-right" style="font-size:15px;color:black"></i></a>
+                            </p>
+                            
+
+                        </label>
+                    </li>
+                    <li>
+                        <label class="km-label-above">
+                            <span data-i18n="Jetty">Jetty</span>
+                            <select data-role="dropdownlist" data-auto-bind="false" data-value-primitive="true" data-text-field="name" data-value-field="id" data-bind='value:data.assignedJetty,source:data.JettyList'></select>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="km-label-above">
+                            Planned Arrival Date
+                            <input type="datetime-local" data-bind="value:data.plannedArrival" style="padding-right:20px;font-family:inherit" />
+                        </label>
+                    </li>
+                    <li>
+                        <label class="km-label-above">
+                            Mooring Chargable<input id="subscription-switch" data-role="switch" checked />
+                        </label>
+                        
+                    </li>
+                    <li>
+                        <label class="km-label-above">
+                            Remark
+                            <textarea data-bind="value:data.Remark"></textarea>
+                        </label>
+                    </li>
+                </ul>
+        </div>
+        <div data-role="collapsible">
+            <h3><span data-i18n="Order Info"> Order Info</span></h3>
+            <p>
+                <ul  class="tm-listview" id="list" data-role="listview"  data-template="orderList">
+                </ul>
+            </p>
+        </div>    
+    </div>
+</div>
+<!--Basic Order details-->
+<div>
+    <div id="basicOrder">
+        <ul data-role="listview" data-style="inset">
+            <li>
+                <label class="km-label-above">
+                    Customer
+                    <input type="text" data-bind="value:data.CustomerName" />
+                </label>
+            </li>
+           <li>
+               <label class="km-label-above">
+                   Type
+                   <select data-role="dropdownlist" data-bind="value:data.OperationType">
+                       <option value="1">Loading</option>
+                       <option value="2">Discharge</option>
+                   </select>
+               </label>
+           </li>
+            <li>
+                <label class="km-label-above">
+                    Product
+                    <input type="text" data-bind="value:data.ProductName" />
+                </label>
+            </li>
+            <li>
+                <label class="km-label-above">
+                    Qty
+                    <input type="number" data-bind="value:data.Qty" />
+                </label>
+
+            </li>
+            <li>
+                <label class="km-label-above">
+                    UOM
+                    <select data-role="dropdownlist" data-auto-bind="false" data-value-primitive="true" data-text-field="name" data-value-field="id" data-bind='value:data.UOMId,source:data.UOMList'></select>
+                </label>
+
+            </li>
+            <li>
+                <label class="km-label-above">
+                    Is blending<input id="subscription-switch" data-role="switch" checked />
+                </label>
+
+            </li>
+            <li>
+                <label class="km-label-above">
+                    Remark
+                    <textarea data-bind="value:data.Remark"></textarea>
+                </label>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--Schedule details-->
+<div>
+    <div id="vesselSchedule">
+        <script id="editor" type="text/x-kendo-template">
+            <ul class="k-listgroup k-listgroup-flush">
+                <li class="k-item k-listgroup-item">
+                    <label class="k-label k-listgroup-form-row">
+                        <span class="k-item-title k-listgroup-form-field-label">Title</span>
+                        <div class="k-listgroup-form-field-wrapper" data-container-for="title">
+                            <input type="text" id="title" name="title" title="Title" data-bind="value:title" class="k-textbox">
+                        </div>
+                    </label>
+                </li>
+                <li class="k-item k-listgroup-item">
+                    <label class="k-label k-listgroup-form-row">
+                        <span class="k-item-title k-listgroup-form-field-label">EAT</span>
+                        <div class="k-listgroup-form-field-wrapper" data-container-for="start">
+                            <input type="datetime-local" class="localdate" required="" data-type="datetime-local" data-bind="value:start, invisible:isAllDay" data-validate="true" name="start" title="Start" data-timezone="Etc/UTC">
+                            <span data-for="start" class="k-invalid-msg" style="display: none;"></span>
+                        </div>
+                    </label>
+                </li>
+                <li class="k-item k-listgroup-item">
+                    <label class="k-label k-listgroup-form-row">
+                        <span class="k-item-title k-listgroup-form-field-label">EDT</span>
+                        <div class="k-listgroup-form-field-wrapper" data-container-for="end">
+                            <input type="datetime-local" class="localdate" required="" data-type="datetime-local" data-bind="value:end, invisible:isAllDay" data-validate="true" name="end" title="End" data-timezone="Etc/UTC">
+                            <span data-for="end" class="k-invalid-msg" style="display: none;"></span>
+                        </div>
+                    </label>
+                </li>
+                <li class="k-item k-listgroup-item">
+                    <label class="k-label k-listgroup-form-row">
+                        <span class="k-item-title k-listgroup-form-field-label">Jetty</span>
+                        <div class="k-listgroup-form-field-wrapper" data-container-for="jettyId">
+                            <select style="width:100%" class="tm-dropdown" data-role="dropdownlist" data-auto-bind="false" data-value-primitive="true" data-text-field="text" data-value-field="value" data-bind="value:jettyId,source:JettyList">
+                            </select>
+                            
+                        </div>
+                    </label>
+                </li>
+            </ul>
+        </script>
+        <div class="scheduler"  style="margin-right:10px"></div></div>
+</div>
+<!--Order List-->
+<div>
+    <div id="orderlist">
+        <script id="order-template" type="text/x-kendo-template">
+            <div class="tm-status km-thumbnail" style="background-color:#:color#;height:5rem"><h1 style="margin-top:20px">#:status#</h1></div>
+            <h4 class="km-bold">#:OrderNo#</h4>
+            <p class="job-title"><i class="fas fa-database"></i> #:ProductName#<span style="float:right">#:Qty# #:UOM#</span></p>
+            <p class="job-title"><i class="far fa-address-card"></i> #:CustomerName#</p>
+        </script>
+        <ul class="tm-listview"></ul>
+    </div>
+</div>
+<!--Order Details-->
+<div>
+    <div id="order">
+            <div class="firstSection" data-role="collapsible">
+            <h3><span data-bind="text:data.title" /></h3>
+            <ul data-role="listview" data-style="inset">
+                <li>
+                    <label class="km-label-above">
+                        Customer
+                        <input type="text" data-bind="value:data.CustomerName" />
+                    </label>
+                </li>
+                <li class="vesselorder">
+                    <label class="km-label-above">
+                        Type
+                        <select data-role="dropdownlist" data-bind="value:data.OperationType,events:{change:onOperationTypeChange}">
+                            <option value="1">Loading</option>
+                            <option value="2">Discharge</option>
+                        </select>
+                    </label>
+                </li>
+                <li>
+                    <label class="km-label-above">
+                        Product
+                        <input type="text" data-bind="value:data.ProductName" />
+                    </label>
+                </li>
+                <li>
+                    <label class="km-label-above">
+                        Qty
+                        <input type="number" data-bind="value:data.Qty" />
+                    </label>
+
+                </li>
+                <li>
+                    <label class="km-label-above">
+                        UOM
+                        <select data-role="dropdownlist" data-auto-bind="false" data-value-primitive="true" data-text-field="name" data-value-field="id" data-bind='value:data.UOMId,source:data.UOMList'></select>
+                    </label>
+
+                </li>
+                <li>
+                    <label class="km-label-above">
+                        Is blending<input id="subscription-switch" data-role="switch" checked />
+                    </label>
+
+                </li>
+                <li class="vesselorder">
+                    <label class="km-label-above">
+                        Vessel
+                        <input type="text" data-bind="value:data.vesselName" />
+                    </label>
+                </li>
+                <li class="vesselorder">
+                    <label class="km-label-above">
+                        Planned Arrival
+                        <input type="datetime-local" data-bind="value:data.plannedArrival" style="padding-right:20px;font-family:inherit" />
+                    </label>
+                </li>
+                <li>
+                    <label class="km-label-above">
+                        Estimated Start Date
+                        <input type="datetime-local" data-bind="value:data.startDate" style="padding-right:20px;font-family:inherit" />
+                    </label>
+                </li>
+                <li>
+                    <label class="km-label-above">
+                        Remark
+                        <textarea data-bind="value:data.Remark"></textarea>
+                    </label>
+                </li>
+            </ul>
+            </div>
+            <div data-role="collapsible">
+                <h3>Tanks</h3>
+                <p>
+                    <ul class="tm-listview" id="list" data-role="listview"></ul>
+                </p>
+            </div>
+            <div data-role="collapsible" class="bol-doc">
+                <h3>B/L Instruction</h3>
+                <p>
+                    <ul class="tm-listview" id="list" data-role="listview"></ul>
+                </p>
+            </div>
+        </div>
+</div>
+<!--Inventory List-->
+<div>
+    <div id="inventorylist">
+        <script id="inventory-template" type="text/x-kendo-template">
+            <h4 class="km-bold" style="color:blue">#:TankName# <span style="float:right"><i class="fas fa-database"></i> #:ProductName#</span> </h4> 
+            <p class="job-title">Density@#:Temperature# #:Density#<span style="float:right">Net Volume #:GSV#</span></p>
+            <p class="job-title">US BBL@60F #:USBBL#<span style="float:right">Metric TON #:MT#</span></p>
+        </script>
+        <ul class="tm-listview"></ul>
+    </div>
+</div>
+<!--Transaction List-->
+<div>
+    <div id="transactionlist">
+        <script id="job-template" type="text/x-kendo-template">
+            <div class="tm-status km-thumbnail" style="background-color:#:color#;height:6.6rem"><h1 style="margin-top:2.3rem">#:status#</h1></div>
+            <h4 class="km-bold"><i class="#:OperationTypeIcon#"></i> #:JobNo# <span style="float:right"><i class="fas fa-database"></i> #:ProductName#</span></h4>
+            <p class="job-title">Start Date #:startDate#<span style="float:right">End Date #:endDate#</span></p>
+            <p class="job-title">Target #:Qty# #:UOM#<span style="float:right">Actual #:Actual# #:UOM#</span></p>
+            <p class="job-title"><i class="far fa-address-card"></i> #:CustomerName#</p>
+        </script>
+        <ul class="tm-listview"></ul>
+    </div>
+</div>

@@ -1,0 +1,513 @@
+﻿<!--Login-->
+<div>
+    <div id="loginForm" >
+        <div class="loginTitle">
+            <div class="page-header text-center">
+                <h1 style="font-size:60px;">Welcome to eworkspace portal</h1>
+            </div>
+            <p class="text-center" style="font-size:30px;">Apply your leave and flight, and claim your trip settlement easily</p>
+        </div>
+        <div class="form row" style="padding-top:30px;">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="form-group"><h2><span class="glyphicon glyphicon-user" style="margin-right:10px"></span>Login</h2></div>
+                <div style="margin-top:10px" class="form-group">
+                    <input type="text" name="userId" class="form-control" style="width:280px;margin-left:5%" placeholder="User Name" />
+                </div>
+                <div style="margin-top:10px" class="form-group">
+                    <input type="password" name="password" class="form-control" style="width:280px;margin-left:5%" placeholder="Password" />
+                </div>
+                <div style="margin-top:10px"><button style="width:280px;margin-left:5%" class="btn btn-default">Login</button></div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+</div>
+<!--User Details-->
+ <div>
+    <div id="userform" >
+        <div class="form">
+            <span class="textbox" style="width:450px">
+                <label>User Id:<font color="red">*</font></label>
+                <input type="text" name="User Id" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.UserId" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label>Name:<font color="red">*</font></label>
+                <input type="text" name="Name" placeholder="Click to Enter" required validationmessage="Enter {0}"  data-bind="value:data.DisplayName" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label><span title="password must be at least 8 characters long and contain alphanumeric" data-role="tooltip" data-auto-hide="false" data-position="top">Password:</span><font color="red">*</font></label>
+                <input type="password" name="Password" placeholder="Click to Enter" required data-bind="value:data.NewPassword" data-password-msg="password must be at lease 8 characters long and contain alphanumeric" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label>Company:</label>
+                <input type="text" name="Company" placeholder="Click to Enter" validationmessage="Enter {0}" data-bind="value:data.Company" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label>Email:</label>
+                <input type="text" name="Email" placeholder="Click to Enter" data-bind="value:data.Email" data-email-msg="invalid email address" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label>Confirm Password:<font color="red">*</font></label>
+                <input type="password" name="Confirm Password" placeholder="Click to Enter" data-bind="value:data.ConfirmedPassword" required data-confirmpassword-field="Password" data-confirmpassword-msg="confirmed password is different with password" onpaste="return false;" />
+            </span>
+        </div>
+    </div>
+</div>
+<!--Dashboard Details-->
+<div>
+    <div id="dashboardsettings" type="text/x-kendo-template">
+        <div class="dashboard-settings">
+            <div style="float:left;width:45%;min-width:600px">
+                <div class="form">
+                    <span class="textbox">
+                        <label>Name:<font color="red">*</font></label>
+                        <input type="text" name="Name" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.Name" />
+                    </span>
+                    <span class="textbox">
+                        <label>Default Dashboard:</label>
+                        <select data-role="dropdownlist" data-bind="value:data.IsDefault">
+                            <option value="false">No</option>
+                            <option value="true">Yes</option>
+                        </select>
+                    </span>
+                    <div style="width:100%;margin-left:10px">
+                        <label>Layout:</label>
+                        <table style="margin-left:10px;" class="layout">
+                            <tr>
+                                <td>
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="col-xs-4"><div class="colgrid"></div></div>
+                                            <div class="col-xs-4"><div class="colgrid"></div></div>
+                                            <div class="col-xs-4"><div class="colgrid"></div></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-4"><div class="colgrid"></div></div>
+                                            <div class="col-xs-4"><div class="colgrid"></div></div>
+                                            <div class="col-xs-4"><div class="colgrid"></div></div>
+                                        </div>
+                                    </div>
+                                    <label>3-Column Regular Dashboard</label>
+                                </td>
+                                <td>
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="col-xs-3"><div class="colgrid"></div></div>
+                                            <div class="col-xs-6"><div class="colgrid"></div></div>
+                                            <div class="col-xs-3"><div class="colgrid"></div></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-6"><div class="colgrid"></div></div>
+                                            <div class="col-xs-6"><div class="colgrid"></div></div>
+                                        </div>
+
+                                    </div>
+                                    <label>3-Column Multi-Focused Dashboard</label>
+
+                                </td>
+                                <td>
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="col-xs-3"><div class="colgrid"></div></div>
+                                            <div class="col-xs-3"><div class="colgrid"></div></div>
+                                            <div class="col-xs-3"><div class="colgrid"></div></div>
+                                            <div class="col-xs-3"><div class="colgrid"></div></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12"><div class="colgrid"></div></div>
+                                        </div>
+
+                                    </div>
+                                    <label>4-Column Overview Dashboard</label>
+                                </td>
+                            </tr>
+                            <tr><td><br /></td><td></td><td></td></tr>
+                            <tr>
+                                <td>
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="col-xs-6"><div class="colgrid"></div></div>
+                                            <div class="col-xs-6"><div class="colgrid"></div></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-6"><div class="colgrid"></div></div>
+                                            <div class="col-xs-6"><div class="colgrid"></div></div>
+                                        </div>
+                                    </div>
+                                    <label>2-Column Regular Dashboard</label>
+                                </td>
+                                <td>
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="col-xs-4"><div class="colgrid"></div></div>
+                                            <div class="col-xs-4"><div class="colgrid"></div></div>
+                                            <div class="col-xs-4"><div class="colgrid"></div></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12"><div class="colgrid"></div></div>
+                                        </div>
+                                    </div>
+                                    <label>3-Column Overview Dashboard</label>
+                                </td>
+                                <td>
+                                    <div class="item">
+                                        <div class="row">
+                                            <div class="col-xs-6"><div class="colgrid" style="height:65px;margin-right:15px"></div></div>
+                                            <div class="col-xs-6">
+                                                <div class="row">
+                                                    <div class="col-xs-6"><div class="colgrid"></div></div>
+                                                    <div class="col-xs-6"><div class="colgrid"></div></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-6"><div class="colgrid"></div></div>
+                                                    <div class="col-xs-6"><div class="colgrid"></div></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <label>3-Cloumn Focused Dashboard</label>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-left:20px;margin-right:10px;margin-top:10px; min-width:600px;float:left;">
+                <label>Select Views:</label>
+                <div class="views">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Contact Details-->
+<div>
+    <div id="contactform" type="text/x-kendo-template">
+        <div class="form">
+            <span class="textbox" style="width:450px">
+                <label>Name:<font color="red">*</font></label>
+                <input type="text" name="Name" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.ContactName" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label>Email:<font color="red">*</font></label>
+                <input type="text" name="Email" placeholder="Click to Enter" data-bind="value:data.ContactEmail" data-email-msg="invalid email address" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label>Company:</label>
+                <input type="text" name="Company" placeholder="Click to Enter" data-bind="value:data.Organization" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label>Mobile:</label>
+                <input type="text" name="Mobile" placeholder="Click to Enter" data-bind="value:data.Mobile" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label>Tel:</label>
+                <input type="text" name="Tel" placeholder="Click to Enter" data-bind="value:data.Extension" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label>User Id:</label>
+                <input type="text" name="UserId" placeholder="Click to Enter"  data-bind="value:data.ContactId" />
+            </span>
+        </div>
+    </div>
+</div>
+<!--Menu Details-->
+<div>
+    <div id="menuform" type="text/x-kendo-template">
+        <div class="form">
+            <span class="textbox" style="width:450px">
+                <label>Name:<font color="red">*</font></label>
+                <input type="text" name="Name" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.Name" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label>Icon:</label>
+                <input type="text" name="Icon" placeholder="Click to Enter" data-bind="value:data.Icon" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label>Page:</label>
+                <select data-role="dropdownlist"
+                        data-value-primitive="true"
+                        data-text-field="Description"
+                        data-value-field="Id"
+                        data-bind="value: data.PageId, source: data.Pages"></select>
+            </span>
+            <span class="textbox" style="width:450px">
+                <label>Parent:</label>
+                <select data-role="dropdownlist"
+                        data-value-primitive="true"
+                        data-text-field="Name"
+                        data-value-field="Id"
+                        data-bind="value: data.ParentId, source: data.Parents"></select>
+            </span>
+            <span class="textbox" style="width:450px">
+                <label>Order Id:<font color="red">*</font></label>
+                <input type="text" name="OrderId" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.OrderId" />
+            </span>
+        </div>
+    </div>
+</div>
+<!--Page Details-->
+<div>
+    <div id="pageform" type="text/x-kendo-template">
+        <div class="form">
+            <span class="textbox" style="width:450px">
+                <label>Id:<font color="red">*</font></label>
+                <input id="txtPageId" type="text" name="Id" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.Id" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label>Page Url:<font color="red">*</font></label>
+                <input type="text" name="Url" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.Url" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label>Description:<font color="red">*</font></label>
+                <input type="text" name="Description" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.Description" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label>Widget:</label>
+                <select data-role="dropdownlist"
+                        data-value-primitive="true"
+                        data-text-field="Name"
+                        data-value-field="Id"
+                        data-bind="value: data.WidgetId, source: data.Widgets"></select>
+            </span>
+        </div>
+    </div>
+</div>
+<!--Widget Details-->
+<div>
+    <div id="widgetform" type="text/x-kendo-template">
+        <div style="display: -ms-flexbox;display: -webkit-box;">
+            <div class="form">
+                <span class="textbox" style="width:450px">
+                    <label>Name:<font color="red">*</font></label>
+                    <input type="text" name="Name" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.Name" />
+                </span>
+                <span class="textbox" style="width:450px">
+                    <label>Instance Name:<font color="red">*</font></label>
+                    <input type="text" name="Instance Name" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.InstanceName" />
+                </span>
+                <span class="textbox" style="width:450px">
+                    <label>Description:<font color="red">*</font></label>
+                    <input type="text" name="Description" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.Description" />
+                </span>
+                <span class="textbox" style="width:450px">
+                    <label>Service Url:</label>
+                    <input type="text" name="ServiceUrl" placeholder="Click to Enter" data-bind="value:data.ServiceUrl" data-serviceurl-msg="invalid service url" />
+                </span>
+            </div>
+            <div class="form">
+                <span class="textbox" style="width:450px">
+                    <label><b>Upload Source File:</b></label>
+                </span> 
+                <span class="textbox" style="width:450px">
+                    <label>Script File:<font color="red">*</font></label>
+                    <input id="txtScriptFile" type="text" name="ScriptFile" data-bind="value:data.SourceFilePath" readonly="readonly"/>
+                </span>
+                <span class="textbox" style="width:450px">
+                    <label>Template File:</label>
+                    <input id="txtTemplateFile" type="text" name="TemplateFile" data-bind="value:data.TemplateFileFolder" readonly="readonly" />
+                </span>
+                <span class="fileUpload" style="width:450px">
+                    <input name="sourcefiles" id="SourceFiles" type="file">
+                    <!--<input name="sourcefiles" id="SourceFiles" type="file" data-role="upload" data-async="{ saveUrl: '/EWS.Portal/FileUploadHandler.ashx', autoUpload: true }" data-bind="visible: data.isVisible,enabled: data.isEnabled">-->
+                </span>
+            </div>
+            <div class="form">
+                <span class="textbox" style="width:450px">
+                    <label><b>Upload Image File:</b></label>
+                </span>
+                <span class="fileUpload" style="width:450px">
+                    <input name="imagefiles" id="ImageFiles" type="file" multiple="multiple">
+                    <!--<input name="imagefiles" id="ImageFiles" type="file" data-role="upload" data-async="{ saveUrl:'/EWS.Portal/FileUploadHandler.ashx', autoupload: true }" data-bind="visible: data.isVisible,enabled: data.isEnabled">-->
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--View Details-->
+<div>
+    <div id="viewform" type="text/x-kendo-template">
+        <div class="form">
+            <h2>Basic Info</h2>
+            <span class="textbox">
+                <label>Type:</label>
+                <select data-role="dropdownlist" data-bind="value:data.ViewModelType">
+                    <option value="eworkspace.framework.List">List</option>
+                    <option value="eworkspace.framework.Chart">Chart</option>
+                    <option value="">Others</option>
+                </select>
+            </span>
+            <span class="textbox">
+                <label>Widgets:</label>
+                <select class="widgetlist" data-role="dropdownlist" data-option-label="Select a view" data-text-field="Name" data-value-field="Id" data-bind="value:data.WidgetId,source:data.WidgetSource"></select>
+            </span>
+            <span class="textbox">
+                <label>Name:<font color="red">*</font></label>
+                <select data-role="dropdownlist" data-bind="source:data.NameList,value:data.Name"></select>
+                <input type="text" name="Name" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.Name" />
+            </span>
+            <span class="textbox">
+                <label>Description:<font color="red">*</font></label>
+                <input type="text" name="Name" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.Description" />
+            </span>
+       
+        </div>
+    </div>
+</div>
+<!--Customize View Details-->
+<div>
+    <div id="cviewform" type="text/x-kendo-template">
+        <div class="form">
+            <h2>Basic Information</h2>
+            <span class="textbox" style="width:100%">
+                <label>Name:<font color="red">*</font></label>
+                <input type="text" name="Name" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.Name" />
+            </span>
+            <span class="textbox" style="width:100%">
+                <label>Type:</label>
+                <select class="viewType" data-role="dropdownlist" data-bind="value:data.ViewModelType">
+                    <option value="eworkspace.framework.List">List</option>
+                    <option value="eworkspace.framework.Chart">Chart</option>
+                </select>
+            </span>
+            <span class="textbox" style="width:100%">
+                <label>Description:<font color="red">*</font></label>
+                <input type="text" name="Name" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.Description" />
+            </span>
+            <span class="textbox" style="width:100%">
+                <label>Widgets:</label>
+                <select class="widgetlist" data-role="dropdownlist" data-option-label="Select a view" data-text-field="Name" data-value-field="Id" data-bind="value:data.WidgetId,source:data.WidgetSource"></select>
+            </span>
+            <span class="textbox" style="width:100%">
+                <label>Action:</label>
+                <select data-role="dropdownlist" data-option-label="Select a action" data-bind="source:data.NameList,value:data.Action"></select>
+            </span>
+        </div>
+    </div>
+</div>
+<!--Model Detail-->
+<div>
+    <div id="modelform" type="text/x-kendo-template">
+        <div class="form">
+            <h2>Model</h2>
+            <div class="chartmodel">
+                <span class="textbox" style="width:100%">
+                    <label>Title:</label>
+                    <input type="text" name="Name" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.CModel.chartOptions.title.text" />
+                </span>
+                <span class="textbox" style="width:100%">
+                    <label>Chart Type:<font color="red">*</font></label>
+                    <select data-role="dropdownlist" data-bind="value:data.CModel.chartOptions.seriesDefaults.type">
+                        <option value="line">Line</option>
+                        <option value="bar">Bar</option>
+                        <option value="area">Area</option>
+                        <option value="pie">Pie</option>
+                        <option value="donut">Donut</option>
+                    </select>
+                </span>
+                <span class="textbox" style="width:100%">
+                    <label>Category Axis:<font color="red">*</font></label>
+                    <input type="text" name="Name" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.CModel.chartOptions.categoryAxis.field" />
+                </span>
+                <div><span class="textbox"><label>Value Asix:</label></span></div>
+                <div class="grid" data-role="grid"
+                     data-editable="true"
+                     data-toolbar="['create', 'save']"
+                     data-columns="[
+                                 { 'field': 'name', 'width': 160 },
+                                 { 'field': 'field' },
+                                 { 'command':'destroy', 'width':150 }
+
+                     ]"
+                     data-bind="source: data.ChartItems, events: {saveChanges: onSave, remove:onRemove}"
+                     style="height: 200px"></div>
+            </div>
+            <div class="listmodel">
+                <span class="textbox" style="width:100%">
+                    <label>Title:</label>
+                    <input type="text" name="Name" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.CModel.title" />
+                </span>
+                <span class="textbox"><label>Columns:</label></span>
+                <div class="grid" data-role="grid"
+                     data-editable="true"
+                     data-toolbar="['create', 'save']"
+                     data-columns="[
+                                 { 'field': 'title', 'width': 160 },
+                                 { 'field': 'field' },
+                                 { 'command':'destroy', 'width':150 }
+                              ]"
+                     data-bind="source: data.Items, events:{saveChanges: onSave, remove:onRemove}"
+                     style="height: 200px"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--Website Details-->
+<div>
+    <div id="websiteform" >
+        <div class="form">
+            <span class="textbox" style="width:450px">
+                <label>Name:<font color="red">*</font></label>
+                <input type="text" name="Name" placeholder="Click to Enter" required validationmessage="Enter {0}" data-bind="value:data.Name" />
+            </span>
+            <span class="textbox" style="width:450px">
+                <label>Home Page:</label>
+                <select data-role="dropdownlist"
+                        data-value-primitive="true"
+                        data-text-field="Description"
+                        data-value-field="Id"
+                        data-bind="value: data.HomePageId, source: data.Pages"></select>
+            </span>
+            <span class="textbox" style="width:450px">
+                <label>Admin Role:</label>
+                <select data-role="dropdownlist"
+                        data-value-primitive="true"
+                        data-text-field="Name"
+                        data-value-field="Id"
+                        data-bind="value: data.AdminRoleId, source: data.Roles"></select>
+            </span>
+        </div>
+    </div>
+</div>
+<!--Assign 2FA To Role-->
+<div>
+    <script id="2FAform" type="text/x-kendo-template">
+        <div class="form k-content">
+            <h4 style="margin-top: 15px;margin-bottom: 10px;">Please select 2FA as the below:</h4>
+            <span class="checkBoxList">
+
+            </span>
+        </div>
+    </script>
+</div>
+<!--User 2FA Setting-->
+<div>
+    <script id="User2FAform" type="text/x-kendo-template">
+        <div class="User2FAform">          
+        </div>
+    </script>
+</div>
+<div>
+    <script id="widgetSettingsForm" type="text/x-kendo-template">
+        <div class="form">
+            <div style='margin:10px;'>
+                <span style='font-size:16px'>Widget:</span>
+                <select class="Widgets" data-role='dropdownlist' data-value-primitive='true' data-text-field='WidgetName' data-value-field='WidgetId' data-bind='value: data.SelectedWidgetId, source: data.WidgetSettings'></select>
+            </div>
+           <h3 style='margin-left:5px;margin-top:5px;margin-bottom:10px;font-size:16px;'>Parameters:</h3>
+            <div class='grid' data-role="grid"
+                 data-editable="true"
+                 data-toolbar="['create', 'save']"
+                 data-columns="[
+                                 { 'field': 'Name',  },
+                                 { 'field': 'Value' },
+                                 { 'command': 'destroy' }
+                 ]"
+                 data-bind="source: data.parameters"
+                 style='border-width:1px 0px 1px 0px;height:300px'></div>
+            </div>
+    </script>
+</div>

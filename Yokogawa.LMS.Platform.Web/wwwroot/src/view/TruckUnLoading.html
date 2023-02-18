@@ -1,0 +1,120 @@
+﻿<!--TruckUnloadingOrderForm-->
+<div>
+    <div id="TruckUnloadingOrderForm">
+        <div class="form" style="width:100%">
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col3">                   
+
+                    <div class="t-fieldlist">
+                        Order No
+                        <span class="required">*</span>
+                        <input type="text" name="OrderNo" data-bind="value:data.OrderNo,enabled:data.AllowEdit" class="k-textbox" required validationMessage="{0} is required">
+
+                    </div>
+                    <div class="t-fieldlist">
+                        Unloading Date
+                        <span class="required">*</span>
+                        <input data-role="datepicker" name="UnloadingDate" data-bind="enabled: true,value: data.UnloadingDate " required validationMessage="{0} is required">
+
+                    </div>
+                    <div class="t-fieldlist">
+                        
+                        <label class="k-checkbox-label" for="utpilot">Source Type</label>
+                        <input type="radio" name="sourcetype" id="manual" style="margin-left: 5pt;"  disabled="disabled"   class="k-radio MooringTypeVessel" data-bind="checked: data.SourceType" value="1">
+                        <label for="manual" class="k-radio-label">Manual</label>
+
+                        <input type="radio" name="sourcetype" id="fromsap" style="margin-left: 5pt;"  disabled="disabled"  class="k-radio MooringTypeBarge" data-bind="checked: data.SourceType" value="2">
+                        <label for="fromsap" class="k-radio-label">From SAP</label>
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col3">                 
+
+                    <div class="t-fieldlist">
+                        Customer
+                        <span class="required">*</span>
+                        <select name="Customer" style="width:100%" required validationMessage="{0} is required" data-role="combobox" data-auto-bind="false" data-value-primitive="true" data-text-field="text" data-value-field="value" data-bind="value:data.CustomerId,source:data.CustomerList"></select>
+
+                    </div>
+                    <div class="t-fieldlist">
+                        Product
+                        <span class="required">*</span>
+                        <select name="Product" style="width:100%" required validationMessage="{0} is required" data-role="combobox" data-auto-bind="false" data-value-primitive="true" data-text-field="text" data-value-field="value" data-bind="value:data.ProductId,source:data.ProductList"></select>
+
+                    </div>
+                    <div class="t-fieldlist">
+                        Bay No
+                        <input type="text" name="OrderNo" data-bind="value:data.BayNo" class="k-textbox">
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col3">                    
+
+                    <div class="t-fieldlist">
+                        Order Qty
+                        <span class="required">*</span>
+                        <input type="text" name="OrderQty" data-bind="value:data.OrderQty" class="k-textbox" required validationMessage="{0} is required">
+
+                    </div>
+                    <div class="t-fieldlist">
+                        UOM
+                        <span class="required">*</span>
+                        <select name="UOM" style="width:100%" required validationMessage="{0} is required" data-role="combobox" data-auto-bind="false" data-value-primitive="true" data-text-field="text" data-value-field="value" data-bind="value:data.UOM,source:data.UomList"></select>
+
+                    </div>
+                    <div class="t-fieldlist">
+                        Card
+                        <select name="CardId" style="width:100%" data-role="combobox" data-auto-bind="false" data-value-primitive="true" data-text-field="text" data-value-field="value" data-bind="value:data.CardId,source:data.CardList"></select>
+
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col3">                   
+
+                    <div class="t-fieldlist">
+                        Carrier
+                        <select name="CarrierId" style="width:100%" data-role="combobox" data-auto-bind="false" data-value-primitive="true" data-text-field="text" data-value-field="value" data-bind="value:data.CarrierId,source:data.CarrierList"></select>
+
+                    </div>
+                    <div class="t-fieldlist">
+                        Truck
+                        <span class="required">*</span>
+                        <select name="TruckId" style="width:100%" required validationMessage="{0} is required" data-role="combobox" data-auto-bind="false" data-value-primitive="true" data-text-field="text" data-value-field="value" data-bind="value:data.TruckId,source:data.TruckList"></select>
+
+                    </div>
+                    <div class="t-fieldlist">
+                        Driver
+                        <select name="DriverId" style="width:100%" data-role="combobox" data-auto-bind="false" data-value-primitive="true" data-text-field="text" data-value-field="value" data-bind="value:data.DriverId,source:data.DriverList"></select>
+
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>         
+
+            <div class="row">
+                <div class="tw-col-1"></div>
+                <div class="tw-col-18  t-col2">
+                    <div class="t-fieldlist" style="width: 97%; height: 100px; margin-left: 1.5%">
+                        Remarks
+                        <textarea id="remark" name="remark"  style="height: 100px;" data-bind="value:data.Remarks" data-role="textarea"
+                                  data-resizable="none"
+                                  data-max-length="500"
+                                  data-rows="5" placeholder="Enter your remark here"></textarea>
+
+                    </div>
+                </div>
+                <div class="tw-col-1"></div>
+            </div>
+        </div>
+    </div>
+</div>

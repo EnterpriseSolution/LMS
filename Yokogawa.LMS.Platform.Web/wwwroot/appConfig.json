@@ -1,0 +1,28 @@
+﻿{
+  "components": [],
+  "serviceUrl": "localhost:5002/api/",
+  "AuthorizationUrl": "localhost:5001/",
+  "AzureServiceUrl": "localhost:5004/api",
+  "ClientId": "ae948767-259e-44f7-a4b5-3733da34e781",
+  "Layout": "sidebar",
+  "PortalName": "Logistic Management",
+  "locale": {
+    "en": "./src/langs/en.json",
+    "zh": "./src/langs/zh.json"
+  },
+  "currentLang": "en",
+  "Debug": false,
+  "defaultContainer": "#content",
+  "routerConfig": {
+  },
+  "Languages": [
+    {
+      "Id": "en",
+      "Name": "English"
+    },
+    {
+      "Id": "zh",
+      "Name": "Chinese"
+    }
+  ]
+}
